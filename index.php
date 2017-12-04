@@ -14,69 +14,74 @@
       <link rel='stylesheet' href='css/style.css'>
    </head>
    <body>
-      <div class='page-container'>
-         <!-- start: PAGE HEADER-->
-         <div class='page-header-wrapper'>
-            <div class='page-header'>
-               <a class='product-logo' href='http://www.plesk.com/' target='_blank'><img src='img/logo.png' alt='Plesk'></a>
+      <!-- start: PAGE HEADER-->
+      <header class="container-fluid navbar">
+         <div class="row w-100">
+            <div class="col-xs-12">
+               <h3>musulmanes radio - palma de mallorca</h3>
+               <h1>MM Radio.es</h1>
+               <h3>el broadcast musulmán en habla hispana</h3>
             </div>
          </div>
-         <!-- end: PAGE HEADER-->
-
-         <!-- start: PAGE CONTENT-->
-         <div class='page-content-wrapper'>
-            <div class='page-content'>
-               <div class='product-info-wrapper'>
-                  <div class='col'>
-                     <div class='product-info'>
-                        <div class='product-info-heading'>What is Plesk</div>
-                        <div class='product-info-content'>
-                           <p><strong><a href='http://www.plesk.com' target='_blank'>Plesk</a></strong> is a hosting control panel with simple and secure web server and website management tools. It was specially designed to help IT specialists manage web, DNS, mail and other services through a comprehensive and user-friendly GUI. <a class='more' href='http://www.plesk.com' target='_blank'>Learn more about Plesk</a>.</p>
-                           <ul class='links'>
-                              <li><a class='blog' href='http://devblog.plesk.com/' target='_blank'><span>Developer Blog</span></a></li>
-                              <li><a class='forum' href='http://talk.plesk.com/' target='_blank'><span>Forum</span></a></li>
-                              <li><a class='knowledge-base' href='http://kb.plesk.com/' target='_blank'><span>Knowledge Base</span></a></li>
-                              <li><a class='facebook' href='https://www.facebook.com/Plesk' target='_blank'><span>Facebook</span></a></li>
-                              <li><a class='twitter' href='https://twitter.com/PleskOfficial' target='_blank'><span>Twitter</span></a></li>
-                              <li><a class='google-plus' href='https://plus.google.com/communities/109881979300958500728' target='_blank'><span>Google+</span></a></li>
-                              <li><a class='google-plus' href='https://plus.google.com/communities/109881979300958500728' target='_blank'><span>TEST+</span></a></li>
-                           </ul>
-                        </div>
+      </header>
+      <!-- end: PAGE HEADER-->
+      <!-- start: PAGE CONTENT-->
+      <section>
+         <div class="container-fluid">
+            <div class="row w-100">
+               <div class="col-xs-12 col-sm-2"></div>
+               <div class="col-xs-12 col-sm-8 media justify-content-center playButtonContainer">
+                  <img src="img/Love.png" class="playButton align-self-center img-fluid"/>
+               </div>
+               <div class="col-xs-12 col-sm-2">
+                  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-column">
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">QUIÉNES SOMOS</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">MMR A LA CARTA</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">PROGRAMACIÓN</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">CONTÁCTANOS</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">APPS DE DESCARGA</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">DAWA EN ACCIÓN <br> RED DE REPETIDORES</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#">COLABORA CON NOSOTROS</a>
+                           </li>
+                        </ul>
                      </div>
-                  </div>
-                  <div class='col'>
-                     <div class='product-info'>
-                        <div class='product-info-heading'>Test pages</div>
-                        <div class='product-info-content'>
-                           <p>Plesk provides several test pages that you can use for checking the scripting features, testing database connections and mail sending.</p>
-                           <p>Click an icon to see test pages for different scripts:</p>
-                           <ul class='links'>
-                              <li><a class='fastcgi' href='test/fcgi/test.html'><span>FastCGI</span></a></li>
-                              <li><a class='python' href='test/python/test.html'><span>Python</span></a></li>
-                              <li><a class='php' href='test/php/test.html'><span>PHP</span></a></li>
-                              <li><a class='perl' href='test/perl/test.html'><span>Perl</span></a></li>
-                              <li><a class='ssi' href='test/ssi/test.html'><span>SSI</span></a></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div> <!-- /.product-info-wrapper -->
-
+                  </nav>
+               </div>
             </div>
          </div>
-         <!-- end: PAGE CONTENT-->
-
-         <!-- start: PAGE FOOTER-->
-         <div class='page-footer-wrapper'>
-            <div class='page-footer'>
-               This page was generated by Plesk. Plesk is the leading WebOps platform to run, automate and grow applications, websites and hosting businesses. Learn more at <a href='http://www.plesk.com' target='_blank'>plesk.com</a>.
+      </section>
+      <!-- end: PAGE CONTENT-->
+      <!-- start: PAGE FOOTER-->
+      <footer class="container-fluid navbar">
+         <div class="row w-100">
+            <div class="mx-auto">
+               <h3>Allí donde te encuentres, lleva el Islam siempre contigo</h3>
             </div>
          </div>
-         <!-- end: PAGE FOOTER-->
-      </div>
+      </footer>
+      <!-- end: PAGE FOOTER-->
+      <!-- SCRIPTS -->
       <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>
       <script src='js/bootstrap.min.js'></script>
-      <script src='js/bootstrap-bundle.min.js'></script>
+      <script src='js/bootstrap.bundle.min.js'></script>
    </body>
 </html>
