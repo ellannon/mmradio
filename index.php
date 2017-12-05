@@ -30,10 +30,12 @@
          <div class="container-fluid">
             <div class="row w-100">
                <div class="col-xs-12 col-sm-2">
-                  <div class="cc_player" data-username="mmradio">Cargando ...</div>
                </div>
-               <div class="col-xs-12 col-sm-8 media justify-content-center playButtonContainer">
+               <div class="col-xs-12 col-sm-8 media justify-content-center">
                   <img src="img/logo.png" class="playButton align-self-center img-fluid"/>
+                  <div id="streamer" class="w-100 d-flex align-items-center align-self-center justify-content-center">
+                     <audio src="http://redradioypc.com:8028/stream" autoplay controls="true"></audio>
+                  </div>
                </div>
                <div class="col-xs-12 col-sm-2">
                   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -81,10 +83,9 @@
       </footer>
       <!-- end: PAGE FOOTER-->
       <!-- SCRIPTS -->
-      <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>
       <script src='js/bootstrap.min.js'></script>
       <script src='js/bootstrap.bundle.min.js'></script>
-      <script language="javascript" type="text/javascript" src="https://centova.redradioypc.com/system/player.js"></script>
    </body>
 </html>
