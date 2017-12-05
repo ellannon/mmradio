@@ -7,7 +7,7 @@
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
       <meta http-equiv='Cache-Control' content='no-cache'>
-      <link rel='shortcut icon' href='favicon.ico'>
+      <link rel='shortcut icon' href='img/favicon.ico'>
       <link rel='stylesheet' href='css/bootstrap.min.css'>
       <link rel='stylesheet' href='css/reboot.min.css'>
       <link rel='stylesheet' href='css/bootstrap-grid.min.css'>
@@ -29,9 +29,11 @@
       <section>
          <div class="container-fluid">
             <div class="row w-100">
-               <div class="col-xs-12 col-sm-2"></div>
+               <div class="col-xs-12 col-sm-2">
+                  <div class="cc_player" data-username="mmradio">Cargando ...</div>
+               </div>
                <div class="col-xs-12 col-sm-8 media justify-content-center playButtonContainer">
-                  <img src="img/Love.png" class="playButton align-self-center img-fluid"/>
+                  <img src="img/logo.png" class="playButton align-self-center img-fluid"/>
                </div>
                <div class="col-xs-12 col-sm-2">
                   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -83,5 +85,6 @@
       <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js' integrity='sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh' crossorigin='anonymous'></script>
       <script src='js/bootstrap.min.js'></script>
       <script src='js/bootstrap.bundle.min.js'></script>
+      <script language="javascript" type="text/javascript" src="https://centova.redradioypc.com/system/player.js"></script>
    </body>
 </html>
