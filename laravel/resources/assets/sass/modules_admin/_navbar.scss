@@ -1,0 +1,20 @@
+.main-header{
+	.navbar {
+		background-color: #fff;
+		@include gradient(#FFFFFF, #EEEEEE, 4%, 98%, 180deg);
+		font-family: $font-display;
+	}
+	.logo{
+		&,
+		&:hover{
+			.dark & {
+				background-color: $c-admin-alt-dark;
+				color: #000;
+			}
+			.light & {
+				background-color: $c-admin-alt-light;
+				color: #000;
+			}
+		}
+	}
+}

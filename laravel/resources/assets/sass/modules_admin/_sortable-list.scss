@@ -1,0 +1,63 @@
+.sortable.ui-sortable{
+	.ui-sortable-handle{
+		margin-bottom: 15px;
+		@include trs-prop(0.2s, opacity);
+		@include trs-prop(0.2s, border);
+		.dark & {
+			background-color: $c-admin3-dark;
+			border: 1px solid $c-admin1-dark;
+		}
+		.light & {
+			background-color: $c-admin3-light;
+			border: 1px solid $c-admin1-light;
+		}
+		color: #fff;
+		position: relative;
+		text-transform: uppercase;
+		border-radius: 0;
+		p{
+			margin: 5px 15px;
+		}
+		&:after {
+			content: "\f07d";
+			display: inline-block;
+			font-family: "FontAwesome";
+			position: absolute;
+			right: 14px;
+		    top: 12px;
+		    text-align: center;
+			color: inherit;
+			text-shadow: 0px 0px 0px rgba(0,0,0,0);
+			cursor: move;
+			@include transition(0.1s);
+		}
+	}
+	.ui-sortable-helper{
+		opacity: 0.8;
+		.dark & {
+			background-color: $c-admin2-dark;
+			border: 1px solid $c-admin1-dark;
+			box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+		}
+		.light & {
+			background-color: $c-admin2-light;
+			border: 1px solid $c-admin1-light;
+			box-shadow: 2px 2px 10px rgba(255,255,255,0.4);
+		}
+		p{
+			margin: 5px 15px;
+		}
+	}
+	.placeholder {
+		height: 50px;
+		width: 100%;
+		margin-bottom: 20px;
+		.dark & {
+			border: 1px dotted #fff;
+		}
+		.light & {
+			border: 1px dotted $c-admin-alt-light;
+		}
+		outline: none;
+	}
+}

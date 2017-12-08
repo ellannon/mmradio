@@ -1,0 +1,124 @@
+.box,
+.box.box-default{
+	.dark & {
+		background-color: $c-admin2-dark;
+		border: 1px solid $c-admin3-dark;
+	}
+	.light & {
+		background-color: $c-admin2-light;
+		border: 1px solid $c-admin1-light;
+	}
+	.box-header.with-border {
+	    border-bottom: 0;
+		.dark & {
+			color: rgba(#fff, 0.6);
+		}
+		.light & {
+			color: rgba(#000, 0.6);
+		}
+		font-size: 16px;
+		padding: 25px;
+	}
+	.box-footer{
+		.dark & {
+			background-color: $c-admin2-dark;
+		}
+		.light & {
+			background-color: $c-admin2-light;
+		}
+		border-top: 0;
+	}
+	.box-body{
+		padding: 25px;
+		.form-horizontal .control-label {
+			font-weight: 300;
+		}
+	}
+	.input-group .input-group-addon {
+		.dark & {
+			color: #fff;
+			background-color: darken($c-admin3-dark, 8);
+			border: 1px solid $c-admin1-dark;
+		}
+		.light & {
+			color: #000;
+			background-color: darken($c-admin3-light, 8);
+			border: 1px solid $c-admin1-light;
+		}
+	}
+	.bootstrap-datetimepicker-widget.dropdown-menu{
+		.dark & {
+			background-color: $c-admin2-dark;
+			border: 1px solid $c-admin3-dark;
+			box-shadow: 0px 0px 10px $c-admin1-dark;
+		}
+		.light & {
+			background-color: $c-admin2-light;
+			border: 1px solid $c-admin3-light;
+			box-shadow: 0px 0px 10px $c-admin1-light;
+		}
+		a{
+			.dark & {
+				color: #fff;
+				&,
+				&:hover{
+					span{
+						background-color: $c-admin1-dark;
+					}
+				}
+			}
+			.light & {
+				color: #000;
+				&,
+				&:hover{
+					span{
+						background-color: $c-admin1-light;
+					}
+				}
+			}
+		}
+		table thead tr:first-child th:hover,
+		table td.minute:hover,
+		table td.hour:hover,
+		table td.second:hover,
+		table td span:hover{
+			.dark & {
+				background-color: darken($c-admin2-dark, 4);
+			}
+			.light & {
+				background-color: darken($c-admin2-light, 4);
+			}
+		}
+	}
+	.select2-container .select2-choices .select2-search-field input,
+	.select2-container .select2-choice,
+	.select2-container .select2-choices{
+		.dark & {
+			color: #fff;
+			background-color: $c-admin3-dark;
+		}
+		.light & {
+			color: #000;
+			background-color: $c-admin3-light;
+		}
+		border: 0;
+		&:focus{
+			box-shadow: none;
+		}
+	}
+}
+.select2-drop,
+.select2-drop-active,
+.select2-results {
+	.dark & {
+		background: $c-admin3-dark;
+		background-color: $c-admin3-dark;
+		color: #fff;
+	}
+	.light & {
+		background: $c-admin3-light;
+		background-color: $c-admin3-light;
+		color: #000;
+	}
+}
+.well { background-color: inherit;}
