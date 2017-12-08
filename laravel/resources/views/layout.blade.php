@@ -7,7 +7,7 @@
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
       <meta http-equiv='Cache-Control' content='no-cache'>
-      <link rel='shortcut icon' href='imagesfavicon.ico'>
+      <link rel='shortcut icon' href='images/favicon.ico'>
       <link rel='stylesheet' href='css/bootstrap.min.css'>
       <link rel='stylesheet' href='css/reboot.min.css'>
       <link rel='stylesheet' href='css/bootstrap-grid.min.css'>
@@ -32,7 +32,7 @@
                <div class="col-xs-12 col-sm-2">
                </div>
                <div class="col-xs-12 col-sm-8 media justify-content-center">
-                  <img src="imageslogo.png" class="playButton align-self-center img-fluid"/>
+                  <img src="images/logo.png" class="playButton align-self-center img-fluid"/>
                   <div id="streamer" class="w-100 d-flex align-items-center align-self-center justify-content-center">
                      <audio src="http://redradioypc.com:8028/stream" autoplay controls="true"></audio>
                   </div>
