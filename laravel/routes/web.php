@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+Route::get('/{slug}', ['as' => 'pagina', 'uses' => 'PaginaController@index']);
+Route::get('', ['as' => 'home', 'uses' => 'PaginaController@home']);
+
+// Route::get('/', function () {
+//     return view('layout');
+// });
 
 // ADMIN
 Route::group([

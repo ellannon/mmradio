@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
-use Backpack\CRUD\ModelTraits\SpatieTranslatable\HasTranslations;
 
 
-class Noticia extends Model
+class Pagina extends Model
 {
     use CrudTrait;
     use SoftDeletes;
-    use HasTranslations;
 
 
      /*
@@ -22,11 +20,11 @@ class Noticia extends Model
 	|--------------------------------------------------------------------------
 	*/
 
-    protected $table = 'noticies';
+    protected $table = 'paginas';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['titol','descripcio','entrada','imatge','data','ordre','publicat','created_user','updated_user','deleted_user'];
+    protected $fillable = ['titol','descripcio','entrada','imatge','data','orden','publicat','created_user','updated_user','deleted_user'];
     // protected $hidden = [];
     protected $dates = ['deleted_at'];
     protected $translatable = ['titol','descripcio'];
@@ -43,11 +41,6 @@ class Noticia extends Model
 	| RELATIONS
 	|--------------------------------------------------------------------------
 	*/
-
-  public function categories()
-  {
-      return $this->belongsToMany('App\Models\NoticiaCategoria','noticies_categories_relations', 'noticia_id', 'noticia_categoria_id')->withPivot('noticia_categoria_id');
-  }
 
     /*
 	|--------------------------------------------------------------------------

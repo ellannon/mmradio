@@ -5,6 +5,6 @@ return [
     // DO NOT ALLOW EDITS ON THESE LANGUAGE FILES
     // Language files to NOT show in the LangFile Manager
     //
-	'language_ignore' => ['auth', 'passwords', 'pagination', 'reminders', 'validation', 'log', 'crud'],
+	'language_ignore' => ['admin', 'auth', 'passwords', 'pagination', 'reminders', 'validation', 'log', 'crud'],
 
 ];
