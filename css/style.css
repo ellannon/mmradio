@@ -58,8 +58,8 @@ h1{
 }
 .volumeButton{
 	width: 42%;
-	height: 75%;
 	position: absolute;
+	bottom: 12%
 }
 #wrapper{
 	text-align:center;
