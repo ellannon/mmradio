@@ -208,6 +208,11 @@ return [
 		* Collective
 		*/
 		Collective\Html\HtmlServiceProvider::class,
+
+		/*
+		* Jenssegers Agent
+		*/
+		Jenssegers\Agent\AgentServiceProvider::class,
     ],
 
     /*
@@ -259,6 +264,7 @@ return [
 		'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 		'Form' => Collective\Html\FormFacade::class,
       	'Html' => Collective\Html\HtmlFacade::class,
+		'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

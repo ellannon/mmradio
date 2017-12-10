@@ -1,7 +1,7 @@
 elFinder
 ========
 
-**WARNING: IF YOU HAVE OLDER VERSIONS OF ELFINDER ON PUBLIC SERVERS, IT MAY CAUSE SERIOUS DAMAGE TO YOUR SERVER AND VISITED USER. YOU SHOULD UPDATE TO THE LATEST VERSION OR REMOVE IT FROM THE SERVER.**
+**WARNING: IF YOU HAVE OLDER (IN PARTICULAR 2.1.20 OR EARLIER) VERSIONS OF ELFINDER ON PUBLIC SERVERS, IT MAY CAUSE SERIOUS DAMAGE TO YOUR SERVER AND VISITED USER. YOU SHOULD UPDATE TO THE LATEST VERSION OR REMOVE IT FROM THE SERVER.**
 
 <pre>
       _ ______ _           _           
@@ -21,6 +21,7 @@ used in Mac OS X operating system.
 [![Latest Stable Version](https://poser.pugx.org/studio-42/elfinder/version.png)](https://packagist.org/packages/studio-42/elfinder)
 [![Total Downloads](https://poser.pugx.org/studio-42/elfinder/d/total.png)](https://packagist.org/packages/studio-42/elfinder)
 [![CDNJS version](https://img.shields.io/cdnjs/v/elfinder.svg)](https://cdnjs.com/libraries/elfinder)
+[![Donate(nao-pon)](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FF5FKRSMKYDVA)
 
 Contents
 --------
@@ -53,7 +54,7 @@ Features
  * High performance server backend and light client UI
  * Multi-root support
  * Local file system, MySQL, FTP volume storage drivers
- * Cloud strage (Box, Dropbox, GoogleDrive and OneDrive) drivers
+ * Cloud storage (Box, Dropbox, GoogleDrive and OneDrive) drivers
  * Background file/folder upload with Drag & Drop HTML5 support
  * Chunked file upload for large file
  * Upload directly to the folder
@@ -90,7 +91,7 @@ Requirements
 ------------
 ### jQuery / jQuery UI
  * jQuery 1.8.0+
- * jQuery UI 1.9.0+
+ * jQuery UI 1.9.0+ (require selectable, draggable, droppable and resizable)
 
 **However, we recommend newest version.**
 
@@ -125,7 +126,7 @@ Installation
 Downloads
 ------------
 **Stable releases** ([Changelog](https://github.com/Studio-42/elFinder/blob/master/Changelog))
- + [elFinder 2.1.28](https://github.com/Studio-42/elFinder/archive/2.1.28.zip)
+ + [elFinder 2.1.30](https://github.com/Studio-42/elFinder/archive/2.1.30.zip)
  + [elFinder 2.0.9](https://github.com/Studio-42/elFinder/archive/2.0.9.zip) (deprecated)
 
 **Nightly builds**

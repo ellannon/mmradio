@@ -8,23 +8,16 @@
 		elFinder.prototype._options.commandsOptions.edit.editors = optEditors.concat(editors(elFinder));
 	}
 }(function(elFinder) {
-	var // get query of getfile
+	var apps = {},
+		// get query of getfile
 		getfile = window.location.search.match(/getfile=([a-z]+)/),
-		// cdns location
-		cdns = {
-			ace        : '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.8',
-			codemirror : '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0',
-			ckeditor   : '//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.7.1',
-			tinymce    : '//cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.5',
-			simplemde  : '//cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2'
-		},
 		useRequire = (typeof define === 'function' && define.amd),
 		hasFlash = (function() {
 			var hasFlash;
 			try {
 				hasFlash = !!(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
 			} catch (e) {
-				hasFlash = !!(navigator && navigator.mimeTypes["application/x-shockwave-flash"]);
+				hasFlash = !!(typeof window.orientation === 'undefined' || (navigator && navigator.mimeTypes["application/x-shockwave-flash"]));
 			}
 			return hasFlash;
 		})(),
@@ -97,7 +90,6 @@
 							node.data('loading')(true);
 						})
 						.attr('src', url)
-						.data('type', type)
 						.data('loading')();
 				} else {
 					node.data('loading')(true);
@@ -106,7 +98,7 @@
 			}
 		},
 		pixlrSetup = function(opts, fm) {
-			if (!hasFlash) {
+			if (!hasFlash || fm.UA.ltIE8) {
 				this.disabled = true;
 			}
 		},
@@ -126,10 +118,10 @@
 				file = this.file,
 				src = 'https://pixlr.com/'+mode+'/?s=c',
 				myurl = window.location.href.toString().replace(/#.*$/, ''),
-				error = function() {
+				error = function(error) {
 					container.remove();
 					node.data('loading')(true);
-					fm.error('Can not launch Pixlr.');
+					fm.error(error || 'Can not launch Pixlr.');
 				},
 				launch = function() {
 					errtm = setTimeout(error, 10000);
@@ -155,6 +147,12 @@
 						})
 						.on('load', function() {
 							errtm && clearTimeout(errtm);
+							setTimeout(function() {
+								if (container.is(':hidden')) {
+									error('Please disable your ad blocker.');
+								}
+							}, 1000);
+							fm.toFront(container);
 						})
 						.on('error', error)
 						.appendTo(elfNode.hasClass('elfinder-fullscreen')? elfNode : 'body');
@@ -349,6 +347,7 @@
 							maxSize: 2048,
 							language: getLang()
 						});
+						container.css('z-index', $(base).closest('.elfinder-dialog').css('z-index'));
 						// return editor instance
 						dfrd.resolve(featherEditor);
 					},
@@ -383,6 +382,12 @@
 		},
 		{
 			// ACE Editor
+			// called on initialization of elFinder cmd edit (this: this editor's config object)
+			setup : function(opts, fm) {
+				if (fm.UA.ltIE8) {
+					this.disabled = true;
+				}
+			},
 			// `mimes` is not set for support everything kind of text file
 			info : {
 				name : 'ACE Editor',
@@ -391,7 +396,7 @@
 			load : function(textarea) {
 				var self = this,
 					dfrd = $.Deferred(),
-					cdn  = cdns.ace,
+					cdn  = this.fm.options.cdns.ace,
 					start = function() {
 						var editor, editorBase, mode,
 						ta = $(textarea),
@@ -568,13 +573,19 @@
 		},
 		{
 			// CodeMirror
+			// called on initialization of elFinder cmd edit (this: this editor's config object)
+			setup : function(opts, fm) {
+				if (fm.UA.ltIE10) {
+					this.disabled = true;
+				}
+			},
 			// `mimes` is not set for support everything kind of text file
 			info : {
 				name : 'CodeMirror',
 				iconImg : 'img/edit_codemirror.png'
 			},
 			load : function(textarea) {
-				var cmUrl = cdns.codemirror,
+				var cmUrl = this.fm.options.cdns.codemirror,
 					dfrd = $.Deferred(),
 					self = this,
 					start = function(CodeMirror) {
@@ -706,6 +717,12 @@
 		},
 		{
 			// SimpleMDE
+			// called on initialization of elFinder cmd edit (this: this editor's config object)
+			setup : function(opts, fm) {
+				if (fm.UA.ltIE10) {
+					this.disabled = true;
+				}
+			},
 			info : {
 				name : 'SimpleMDE',
 				iconImg : 'img/edit_simplemde.png'
@@ -715,6 +732,7 @@
 				var self = this,
 					base = $(textarea).parent(),
 					dfrd = $.Deferred(),
+					cdn  = this.fm.options.cdns.simplemde,
 					start = function(SimpleMDE) {
 						var h     = base.height(),
 							delta = base.outerHeight(true) - h + 14,
@@ -756,15 +774,15 @@
 				// check SimpleMDE & start
 				if (!self.confObj.loader) {
 					self.confObj.loader = $.Deferred();
-					self.fm.loadCss(cdns.simplemde+'/simplemde.min.css');
+					self.fm.loadCss(cdn+'/simplemde.min.css');
 					if (useRequire) {
 						require([
-							cdns.simplemde+'/simplemde.min.js'
+							cdn+'/simplemde.min.js'
 						], function(SimpleMDE) {
 							self.confObj.loader.resolve(SimpleMDE);
 						});
 					} else {
-						self.fm.loadScript([cdns.simplemde+'/simplemde.min.js'], function() {
+						self.fm.loadScript([cdn+'/simplemde.min.js'], function() {
 							self.confObj.loader.resolve(SimpleMDE);
 						}, {loadType: 'tag'});
 					}
@@ -856,7 +874,7 @@
 
 				if (!self.confObj.loader) {
 					self.confObj.loader = $.Deferred();
-					$.getScript(cdns.ckeditor + '/ckeditor.js', function() {
+					$.getScript(fm.options.cdns.ckeditor + '/ckeditor.js', function() {
 						self.confObj.loader.resolve();
 					});
 				}
@@ -994,7 +1012,7 @@
 				
 				if (!self.confObj.loader) {
 					self.confObj.loader = $.Deferred();
-					$.getScript(cdns.tinymce + '/tinymce.min.js', function() {
+					$.getScript(fm.options.cdns.tinymce + '/tinymce.min.js', function() {
 						setTimeout(function() {
 							self.confObj.loader.resolve();
 						}, 0);
@@ -1015,6 +1033,126 @@
 			resize : function(textarea, instance, e, data) {
 				// fit height to base node on dialog resize
 				instance && textarea._setHeight();
+			}
+		},
+		{
+			info : {
+				name : 'Zoho Editor',
+				iconImg : 'img/edit_zohooffice.png',
+				cmdCheck : 'ZohoOffice',
+				preventGet: true,
+				hideButtons: true
+			},
+			mimes : [
+				'application/msword',
+				'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+				//'application/pdf',
+				'application/vnd.oasis.opendocument.text',
+				'application/rtf',
+				'text/html',
+				'application/vnd.ms-excel',
+				'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+				'application/vnd.oasis.opendocument.spreadsheet',
+				'application/vnd.sun.xml.calc',
+				'text/csv',
+				'text/tab-separated-values',
+				'application/vnd.ms-powerpoint',
+				'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+				'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+				'application/vnd.oasis.opendocument.presentation',
+				'application/vnd.sun.xml.impress'
+			],
+			html : '<iframe style="width:100%;max-height:100%;border:none;"></iframe>',
+			// setup on elFinder bootup
+			setup : function(opts, fm) {
+				if (fm.UA.Mobile || fm.UA.ltIE8) {
+					this.disabled = true;
+				}
+			},
+			// Prepare on before show dialog
+			prepare : function(base, dialogOpts, file) {
+				var elfNode = base.editor.fm.getUI();
+				$(base).height(elfNode.height());
+				dialogOpts.width = Math.max(dialogOpts.width, elfNode.width() * .8);
+			},
+			// Initialization of editing node (this: this editors HTML node)
+			init : function(id, file, dum, fm) {
+				var ta = this,
+					ifm = $(this).hide(),
+					spnr = $('<div/>')
+						.css({
+							position: 'absolute',
+							top: '50%',
+							textAlign: 'center',
+							width: '100%',
+							fontSize: '16pt'
+						})
+						.html(fm.i18n('nowLoading') + '<span class="elfinder-spinner"/>')
+						.appendTo(ifm.parent()),
+					cdata = function() {
+						var data = '';
+						$.each(fm.options.customData, function(key, val) {
+							data += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(val);
+						});
+						return data;
+					};
+				
+				$(ta).data('xhr', fm.request({
+					data: {
+						cmd: 'editor',
+						name: 'ZohoOffice',
+						method: 'init',
+						'args[target]': file.hash,
+						'args[lang]' : fm.lang,
+						'args[cdata]' : cdata
+					},
+					preventDefault : true
+				}).done(function(data) {
+					if (data.zohourl) {
+						ifm.attr('src', data.zohourl).show().height('100%');
+					} else {
+						data.error && fm.error(data.error);
+						ta.elfinderdialog('destroy');
+					}
+				}).fail(function(error) {
+					error && fm.error(error);
+					ta.elfinderdialog('destroy');
+				}).always(function() {
+					spnr.remove();
+				}));
+			},
+			load : function() {},
+			getContent : function() {},
+			save : function() {},
+			// Before dialog close
+			beforeclose : function(base) {
+				var dfd = $.Deferred(),
+					ab = 'about:blank';
+				base.src = ab;
+				setTimeout(function() {
+					var src;
+					try {
+						src = base.contentWindow.location.href;
+					} catch(e) {
+						src = null;
+					}
+					if (src === ab) {
+						dfd.resolve();
+					} else {
+						dfd.reject();
+					}
+				}, 10);
+				return dfd;
+			},
+			// On dialog closed
+			close : function(ta) {
+				var fm = this.fm,
+					xhr = $(ta).data('xhr');
+				if (xhr.state() === 'pending') {
+					xhr.reject();
+				} else {
+					fm.sync(fm.cwd().hash);
+				}
 			}
 		},
 		{

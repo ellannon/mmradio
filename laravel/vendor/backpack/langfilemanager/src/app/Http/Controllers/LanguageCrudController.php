@@ -121,7 +121,7 @@ class LanguageCrudController extends CrudController
         $this->data['currentLang'] = $lang ?: config('app.locale');
         $this->data['currentLangObj'] = Language::where('abbr', '=', $this->data['currentLang'])->first();
         $this->data['browsingLangObj'] = Language::where('abbr', '=', config('app.locale'))->first();
-        $this->data['languages'] = $languages->orderBy('name')->get();
+        $this->data['languages'] = $languages->orderBy('name')->where('active', 1)->get();
         $this->data['langFiles'] = $langfile->getlangFiles();
         $this->data['fileArray'] = $langfile->getFileContent();
         $this->data['langfile'] = $langfile;

@@ -20,6 +20,19 @@ All Notable changes to `Backpack LangFileManager` will be documented in this fil
 - Nothing
 
 
+## [1.0.21] - 2017-08-30
+
+### Fixed
+- disabled languages were still accessible;
+
+
+## [1.0.20] - 2017-08-30
+
+### Added
+- Portugese (pt) language files, thanks to [Toni Almeida](https://github.com/promatik);
+- Laravel 5.5 package auto-discovery support;
+
+
 ## [1.0.19] - 2017-08-11
 
 ### Added

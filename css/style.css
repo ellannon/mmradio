@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'caligra'; /*a name to be used later*/
-    src: url('fonts/HerrVonMuellerhoff-Regular.ttf'); /*URL to font*/
+    src: url('fonts/SCRIPTIN.ttf'); /*URL to font*/
 }
 
 html {
@@ -10,37 +10,82 @@ html {
     overflow-y: scroll;
     color: #000;
 }
-html,
-body {
-    height: 100%;
-    min-height: 100%;
+html, body, .content{
+    min-height: 100vh;
 }
-body {
-   margin: 0;
-   background-image: url("../images/fondo.jpg");
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
+body{
+	font-family: arial;
+	font-size: .9rem;
+	margin: 0;
+	background-image: url("../images/fondo.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .content{
 	margin: 0;
 	padding: 0;
 	background-color: rgba(0, 0, 0, 0.7);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1, h2, h3, h4, h5{
-   color: rgba(255,255,255,.8) !important;
+	color: rgba(255,255,255,.8) !important;
+	text-align: justify;
+   	text-align-last: justify;
+	line-height: normal;
+}
+h1{
+	font-size: 3.6rem;
+}
+.mmradioLetters > h1, .mmradioLetters > h5{
+	margin: auto;
+	max-width: 380px;
 }
 .playButton{
    border-radius: 50%;
    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .5);
-   max-height: 740px;
+   max-height: 378px;
+   position: relative;
 }
-#streamer{
-   position: absolute;
+.centerButton{
+	display: none;
+	border-radius: 50%;
+	width: 100%;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.volumeButton{
+	width: 50%;
+	height: 50%;
+	position: absolute;
+}
+#wrapper{
+	text-align:center;
+	margin:0 auto;
+	padding:0px;
+}
+#player{
+	background-color: rgba(0, 0, 0, 0.5);
+	padding:5px;
+	box-sizing:border-box;
+}
+input[type="image"]{
+	float:left;
+	height:20px;
+	margin-left:2px;
+	margin-right:5px;
+	margin-top:2px;
+}
+#vol_img{
+	width:20px;
+	height: 20px;
+	margin-right: 5px;
 }
 footer{
 	font-family: caligra;
 }
-footer h3{
-	font-size: 70px;
+footer h2{
+	font-size: 3rem;
 }

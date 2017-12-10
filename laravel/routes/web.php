@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/{slug}', ['as' => 'pagina', 'uses' => 'PaginaController@index']);
-Route::get('', ['as' => 'home', 'uses' => 'PaginaController@home']);
-
-// Route::get('/', function () {
-//     return view('layout');
-// });
+Route::get('/', ['as' => 'home', 'uses' => 'PaginaController@home']);
+Route::get('/p/{slug}', ['as' => 'pagina', 'uses' => 'PaginaController@index']);
 
 // ADMIN
 Route::group([
@@ -27,6 +23,7 @@ Route::group([
     CRUD::resource('user', 'UserCrudController');
 	CRUD::resource('seo', 'SeoCrudController');
 });
+
 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
 Route::get('{page}/{subs?}', ['uses' => 'PageController@index'])

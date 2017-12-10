@@ -15,8 +15,8 @@ return [
     'project_name' => 'ADMIN MMRadio',
 
     // Menu logos
-	'logo_lg'   => 'images/logo.png',
-    'logo_mini' => '<b>M</b>',
+	'logo_lg'   => 'images/admin_logo.png',
+    'logo_mini' => '<b>MMR</b>',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'MMRadio',

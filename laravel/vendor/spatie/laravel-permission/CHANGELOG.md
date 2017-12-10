@@ -1,6 +1,19 @@
 # Changelog
 
-All Notable changes to `laravel-permission` will be documented in this file
+All notable changes to `laravel-permission` will be documented in this file
+
+## 1.15 - 2017-12-08
+- allow `hasAnyPermission` to take an array of permissions
+
+## 1.14.1 - 2017-10-26
+- fixed `Gate::before` for custom gate callbacks
+
+## 1.14.0 - 2017-10-18
+- refactor `PermissionRegistrar` to use `$gate->before()`
+- removed `log_registration_exception` as it is no longer relevant
+
+## 1.13.0 - 2017-08-31
+- added compatibility for Laravel 5.5
 
 ## 1.12.0
 

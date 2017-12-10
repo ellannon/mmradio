@@ -7,6 +7,7 @@
 
     {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+	<link rel='shortcut icon' href='images/favicon.ico'>
 
     <title>
       {{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' Admin' : config('backpack.base.project_name').' Admin' }}
@@ -48,10 +49,11 @@
 
       <header class="main-header">
 		<!-- Logo -->
-        <a href="{{ url('') }}" class="logo">
+        <a href="{{ url('') }}" class="logo" style="background-color: #000">
           <!-- mini logo for sidebar mini 50x50 pixels -->
 		  <span class="logo-mini">
-			  <img style="max-height:45px;" src="{!! asset(config('backpack.base.logo_mini')) !!}" alt="M">
+			  {{-- <img style="max-height:45px;" src="{!! asset(config('backpack.base.logo_mini')) !!}" alt="MMR"> --}}
+			  <img style="max-height:45px;" src="{!! asset(config('backpack.base.logo_lg')) !!}" alt="MMRadio">
 		  </span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">
