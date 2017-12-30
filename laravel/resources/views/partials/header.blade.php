@@ -28,9 +28,7 @@
 			</nav>
 		</div>
 	</div>
-	@if ($page->slug != 'home')
-		<div class="row w-100">
-			@include('partials.audio_player')
-		</div>
-	@endif
+	<div class="row w-100" style="{{($page->slug == 'home') ? 'display:none;' : null}}">
+		@include('partials.audio_player')
+	</div>
 </header>
