@@ -55,6 +55,7 @@ h1{
 .pageContent > h1, .pageContent > h5{
 	margin: auto;
 	width: fit-content;
+	width: -moz-fit-content;
 }
 .playButton{
    border-radius: 50%;
