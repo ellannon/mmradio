@@ -16,8 +16,6 @@
 	   <div class="content d-flex flex-column justify-content-between">
 		   @include('partials.header')
 
-		   @include('partials.audio_player')
-
 		   @yield('content')
 
 		   @include('partials.footer')
