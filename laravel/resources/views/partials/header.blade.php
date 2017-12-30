@@ -10,48 +10,18 @@
 		    </div> --}}
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 				<div class="text-center">
-					<a class="" href="{{route('home')}}">
+					<a class="" href="{{url('')}}">
 						<img width="80" class="align-self-center img-fluid" src="{{asset('images/logo.png')}}" alt="">
 					</a>
 				</div>
 				<ul class="navbar-nav w-100 justify-content-end text-left">
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'quienes-somos'])}}">
-							{!!trans('home.menu-quienes-somos')!!}
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'mmr-a-la-carta'])}}">
-							{!!trans('home.menu-mmr-a-la-carta')!!}
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'programacion'])}}">
-							{!!trans('home.menu-programacion')!!}
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'contactanos'])}}">
-							{!!trans('home.menu-contactanos')!!}
-						</a>
-					</li>
-					@if ($mobile)
-						<li class="nav-item">
-							<a class="nav-link" href="{{route('pagina', ['slug' => 'apps-de-descarga'])}}">
-								{!!trans('home.menu-apps-de-descarga')!!}
+					@foreach ($pages as $slug)
+						<li class="nav-item"{{($mobile && $slug == 'apps-de-descarga') ? ' style="display:none;"' : null}}>
+							<a class="nav-link" href="{{$slug}}">
+								{!!trans('home.menu-'.$slug)!!}
 							</a>
 						</li>
-					@endif
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'dawa-en-accion-red-de-repetidores'])}}">
-							{!!trans('home.menu-dawa-en-accion-red-de-repetidores')!!}
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{route('pagina', ['slug' => 'colabora-con-nosotros'])}}">
-							{!!trans('home.menu-colabora-con-nosotros')!!}
-						</a>
-					</li>
+					@endforeach
 				</ul>
             </div>
          </nav>

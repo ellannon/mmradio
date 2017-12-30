@@ -41,4 +41,5 @@
 	'title' => 'Título',
 	'description' => 'Descripción',
 	'keywords' => 'Keywords',
+	'elfinder' => 'Archivos',
 ];

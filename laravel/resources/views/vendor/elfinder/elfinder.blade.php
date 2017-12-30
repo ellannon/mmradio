@@ -41,11 +41,11 @@
 @section('header')
     <section class="content-header">
       <h1>
-        {{ trans('backpack::crud.file_manager') }}
+        {{ trans('admin.elfinder') }}
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url(config('backpack.base.route_prefix')) }}">Admin</a></li>
-        <li class="active">{{ trans('backpack::crud.file_manager') }}</li>
+        <li class="active">{{ trans('admin.elfinder') }}</li>
       </ol>
     </section>
 @endsection

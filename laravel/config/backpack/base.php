@@ -12,7 +12,7 @@ return [
     */
 
     // Project name. Shown in the breadcrumbs and a few other places.
-    'project_name' => 'ADMIN MMRadio',
+    'project_name' => 'MMRadio',
 
     // Menu logos
 	'logo_lg'   => 'images/admin_logo.png',

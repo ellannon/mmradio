@@ -1,7 +1,7 @@
 <?php
 
 namespace Backpack\PageManager\app\Http\Controllers\Admin;
-
+use Auth;
 use App\PageTemplates;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -64,6 +64,10 @@ class PageCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->addButtonFromModelFunction('line', 'open', 'getOpenButton', 'beginning');
+
+		if (!Auth::user()->hasRole('Superadmin')) {
+			$this->crud->denyAccess(['create', 'delete']);
+		}
     }
 
     // -----------------------------------------------

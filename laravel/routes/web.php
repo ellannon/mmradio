@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'PaginaController@home']);
-Route::get('/p/{slug}', ['as' => 'pagina', 'uses' => 'PaginaController@index']);
+// Route::get('/', ['as' => 'home', 'uses' => 'PaginaController@home']);
 
 // ADMIN
 Route::group([

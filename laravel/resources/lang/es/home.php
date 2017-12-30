@@ -6,6 +6,6 @@
     'menu-programacion' => 'PROGRAMACIÓN',
     'menu-contactanos' => 'CONTÁCTANOS',
     'menu-apps-de-descarga' => 'APPS DE DESCARGA',
-    'menu-dawa-en-accion-red-de-repetidores' => 'DAWA EN ACCIÓN RED DE REPETIDORES',
-    'menu-colabora-con-nosotros' => 'COLABORA CON NOSOTROS',
+    'menu-red-de-emisoras-fm' => 'RED DE EMISORAS FM',
+    'menu-colabora-con-mmradio' => 'COLABORA CON MMRADIO',
 ];

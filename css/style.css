@@ -21,6 +21,7 @@ body{
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	color: rgba(255,255,255,.8);
 }
 .content{
 	margin: 0;
@@ -30,7 +31,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, p{
 	color: rgba(255,255,255,.8) !important;
 	text-align: justify;
    	text-align-last: justify;
@@ -39,9 +40,21 @@ h1, h2, h3, h4, h5{
 h1{
 	font-size: 3.6rem;
 }
-.mmradioLetters > h1, .mmradioLetters > h5{
+.mmradioLetters > h1, .mmradioLetters > h5, .mmradioLetters > p{
 	margin: auto;
 	max-width: 380px;
+}
+.mmradioLetters > p{
+	font-size: 1.25rem;
+}
+.pageContent > h1{
+	font-size: 2.3rem;
+	text-align: left;
+   	text-align-last: left;
+}
+.pageContent > h1, .pageContent > h5{
+	margin: auto;
+	width: fit-content;
 }
 .playButton{
    border-radius: 50%;

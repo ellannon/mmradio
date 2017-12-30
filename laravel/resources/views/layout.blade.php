@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang='en' dir='ltr' class='sid-plesk'>
    <head>
-      <title>MMRadio</title>
-      <meta name='copyright' content='Copyright 1999-2016. Parallels IP Holdings GmbH. All Rights Reserved.'>
+	   @yield('metas')
       <meta charset='utf-8'>
       <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>

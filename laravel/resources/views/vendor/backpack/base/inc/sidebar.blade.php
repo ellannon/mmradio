@@ -22,10 +22,7 @@
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 		  @if (Auth::user()->hasRole('Superadmin') || Auth::user()->hasRole('Admin'))
 			  {{-- CUSTOM CRUD ENTITIES --}}
-           @if (Auth::user()->hasRole('Superadmin'))
-             <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/seo') }}"><i class="fa fa-star"></i> <span>Seos</span></a></li>
-           @endif
-			  {{-- <li><a href="{{ url(config('backpack.base.route_prefix').'/page') }}"><i class="fa fa-file-o"></i> <span>{{ trans('backpack::base.page_pages') }}</span></a></li> --}}
+			  <li><a href="{{ url(config('backpack.base.route_prefix').'/page') }}"><i class="fa fa-file-o"></i> <span>{{ trans('backpack::base.page_pages') }}</span></a></li>
 			  <li class="treeview">
 				  <a href="#"><i class="fa fa-globe"></i> <span>{{ trans('backpack::base.translations') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
 				  <ul class="treeview-menu">
@@ -35,15 +32,20 @@
 					  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/language/texts') }}"><i class="fa fa-language"></i> {{ trans('backpack::base.page_site_texts') }}</a></li>
 				  </ul>
 			  </li>
-
+			  <li>
+				  <a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/elfinder') }}">
+					  <i class="fa fa-floppy-o"></i>
+					  <span>{{ trans('admin.elfinder') }}</span>
+				  </a>
+			  </li>
 			  <!-- ================================================ -->
 			  <!-- ================= SETTINGS ================ -->
 			  <!-- ================================================ -->
-			  <li class="header">{{ trans('backpack::base.settings') }}</li>
-			  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/setting') }}"><i class="fa fa-cog"></i> <span>{{ trans('backpack::base.page_settings') }}</span></a></li>
-           @if (Auth::user()->hasRole('Superadmin'))
-             {{-- <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/log') }}"><i class="fa fa-terminal"></i> <span>{{ trans('backpack::base.page_logs') }}</span></a></li> --}}
-           @endif
+	           @if (Auth::user()->hasRole('Superadmin'))
+				   <li class="header">{{ trans('backpack::base.settings') }}</li>
+				   <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/setting') }}"><i class="fa fa-cog"></i> <span>{{ trans('backpack::base.page_settings') }}</span></a></li>
+	             {{-- <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/log') }}"><i class="fa fa-terminal"></i> <span>{{ trans('backpack::base.page_logs') }}</span></a></li> --}}
+	           @endif
 
 			  <li class="header">{{ trans('backpack::base.user') }}</li>
 			  <!-- Users, Roles Permissions -->
@@ -59,7 +61,6 @@
 				  </ul>
 			  </li>
 		  @endif
-          <!--<li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/logout') }}"><i class="fa fa-sign-out"></i> <span>{{ trans('backpack::base.logout') }}</span></a></li>-->
         </ul>
       </section>
       <!-- /.sidebar -->

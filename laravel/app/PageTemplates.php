@@ -20,46 +20,273 @@ trait PageTemplates
     | - page slug
     */
 
-    private function services()
+    private function home()
     {
-        $this->crud->addField([   // CustomHTML
-                        'name' => 'metas_separator',
-                        'type' => 'custom_html',
-                        'value' => '<br><h2>Metas</h2><hr>',
-                    ]);
-        $this->crud->addField([
-                        'name' => 'meta_title',
-                        'label' => 'Meta Title',
-                        'fake' => true,
-                        'store_in' => 'extras',
-                    ]);
-        $this->crud->addField([
-                        'name' => 'meta_description',
-                        'label' => 'Meta Description',
-                        'fake' => true,
-                        'store_in' => 'extras',
-                    ]);
-        $this->crud->addField([
-                        'name' => 'meta_keywords',
-                        'type' => 'textarea',
-                        'label' => 'Meta Keywords',
-                        'fake' => true,
-                        'store_in' => 'extras',
-                    ]);
-        $this->crud->addField([   // CustomHTML
-                        'name' => 'content_separator',
-                        'type' => 'custom_html',
-                        'value' => '<br><h2>Content</h2><hr>',
-                    ]);
-        $this->crud->addField([
-                        'name' => 'content',
-                        'label' => 'Content',
-                        'type' => 'wysiwyg',
-                        'placeholder' => 'Your content here',
-                    ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
     }
-
-    private function contacto()
+    private function quienes_somos()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function mmr_a_la_carta()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function programacion()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function contactanos()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function apps_de_descarga()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function red_de_emisoras_fm()
+    {
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'metas_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Metas</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_title',
+                      'label' => 'Meta Title',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_description',
+                      'label' => 'Meta Description',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'meta_keywords',
+                      'type' => 'textarea',
+                      'label' => 'Meta Keywords',
+                      'fake' => true,
+                      'store_in' => 'extras',
+                  ]);
+      $this->crud->addField([   // CustomHTML
+                      'name' => 'content_separator',
+                      'type' => 'custom_html',
+                      'value' => '<br><h2>Content</h2><hr>',
+                  ]);
+      $this->crud->addField([
+                      'name' => 'content',
+                      'label' => 'Content',
+                      'type' => 'wysiwyg',
+                      'placeholder' => 'Your content here',
+                  ]);
+    }
+    private function colabora_con_mmradio()
     {
       $this->crud->addField([   // CustomHTML
                       'name' => 'metas_separator',
