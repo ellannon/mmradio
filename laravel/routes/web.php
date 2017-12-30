@@ -11,8 +11,6 @@
 |
 */
 
-// Route::get('/', ['as' => 'home', 'uses' => 'PaginaController@home']);
-
 // ADMIN
 Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),

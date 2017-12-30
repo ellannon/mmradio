@@ -16,10 +16,14 @@
 				</div>
 				<ul class="navbar-nav w-100 justify-content-end text-left">
 					@foreach ($pages as $slug)
-						<li class="nav-item"{{($mobile && $slug == 'apps-de-descarga') ? ' style="display:none;"' : null}}>
-							<a class="nav-link" href="{{$slug}}">
-								{!!trans('home.menu-'.$slug)!!}
-							</a>
+						<li class="nav-item">
+							@if ($slug == 'apps-de-descarga')
+								@if ($mobile)
+									<a class="nav-link" href="{{$slug}}"> {!!trans('home.menu-'.$slug)!!} </a>
+								@endif
+							@else
+								<a class="nav-link" href="{{$slug}}"> {!!trans('home.menu-'.$slug)!!} </a>
+							@endif
 						</li>
 					@endforeach
 				</ul>
