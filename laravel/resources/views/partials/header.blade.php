@@ -28,7 +28,7 @@
 			</nav>
 		</div>
 	</div>
-	<div class="row w-100" style="{{($page->slug == 'home') ? 'display:none;' : null}}">
+	<div style="{{($page->slug == 'home') ? 'display:none;' : null}}">
 		@include('partials.audio_player')
 	</div>
 </header>
