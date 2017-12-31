@@ -8,6 +8,11 @@
 	<section>
 		<div class="container-fluid">
 			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 m-auto pageContent">
+					<h1>{!!$page->title!!}</h1>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-xs-1 col-sm-1 col-md-1 m-auto"></div>
 				<div class="col-xs-10 col-sm-10 col-md-10 m-auto pageContent">
 					{!!$page->content!!}

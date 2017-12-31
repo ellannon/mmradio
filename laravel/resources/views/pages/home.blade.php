@@ -1,8 +1,8 @@
 @extends('layout')
 @section('metas')
-	<title>MMRadio</title>
-	<meta name="keywords" content="musulmanes radio palma de mallorca">
-	<meta name="description" content="MM Radio.es musulmanes radio palma de mallorca emisora de radio en habla hispana">
+	<title>{!!$page->title!!}</title>
+	<meta name="keywords" content="{!!json_decode($page->extras, true)['meta_keywords']!!}">
+	<meta name="description" content="{!!json_decode($page->extras, true)['meta_description']!!}">
 @endsection
 @section('content')
    <section>
