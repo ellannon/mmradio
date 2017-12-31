@@ -65,6 +65,9 @@ h1{
 	width: fit-content;
 	width: -moz-fit-content;
 }
+.pageContent img{
+	max-width: 100% !important;
+}
 .playButton{
    border-radius: 50%;
    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .5);
