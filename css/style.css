@@ -31,6 +31,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.flex-column > section{
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	padding-top: 4rem;
+}
 h1, h2, h3, h4, h5, p{
 	color: rgba(255,255,255,.8) !important;
 	text-align: justify;
