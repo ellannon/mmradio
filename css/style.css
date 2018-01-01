@@ -56,6 +56,7 @@ h1{
 	font-size: 1.25rem;
 }
 .pageContent > h1{
+	text-transform: uppercase;
 	font-size: 2.3rem;
 	text-align: left;
    	text-align-last: left;
