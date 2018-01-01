@@ -12,7 +12,7 @@
 						</a>
 					</div>
 					<ul class="navbar-nav w-100 justify-content-end text-left">
-						@foreach ($pages as $slug)
+						@foreach ($menus as $slug)
 							<li class="nav-item">
 								@if ($slug == 'apps-de-descarga')
 									@if ($mobile)

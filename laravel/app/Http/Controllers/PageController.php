@@ -29,8 +29,31 @@ class PageController extends Controller
 
         $this->data['title'] = $page->title;
         $this->data['mobile'] = $this->mobile;
-        $this->data['pages'] = Page::where('slug', '<>', 'home')->get()->pluck('slug');
+        $this->data['menus'] = Page::where('slug', '<>', 'home')->get()->pluck('slug');
         $this->data['page'] = $page->withFakes();
+
+		switch ($page->id) {
+			case 4:
+				$this->data['dias'] = array('lunes' => [], 'martes' => [], 'miercoles' => [], 'jueves' => [], 'viernes' => [], 'sabado' => [], 'domingo' => []);
+				$programacion = json_decode(json_decode($page->extras, true)['programacion'], true);
+				foreach ($programacion as $programa) {
+					foreach ($programa as $key => $value) {
+						$this->data['dias'][$key][] = $value;
+					}
+				}
+			break;
+			case 7:
+				$this->data['emisoras'] = array('onda' => [], 'frecuencia' => [], 'pais' => [], 'zona' => [], 'anfitrion' => []);
+				$emisoras = json_decode(json_decode($page->extras, true)['emisoras'], true);
+				foreach ($emisoras as $emisora) {
+					foreach ($emisora as $key => $value) {
+						$this->data['emisoras'][$key][] = $value;
+					}
+				}
+			break;
+
+			default: break;
+		}
 
         return view('pages.'.$page->template, $this->data);
     }

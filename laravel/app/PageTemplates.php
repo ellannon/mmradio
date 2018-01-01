@@ -49,11 +49,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
@@ -87,11 +87,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
@@ -125,11 +125,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
@@ -163,14 +163,33 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
+	  $this->crud->addField([
+	  				'name' => 'programacion',
+	  				'type' => 'table',
+	  				'label' => 'Tabla de contenidos',
+	  				'entity_singular' => 'programa', // used on the "Add X" button
+	  				'columns' => [
+	  					'lunes' => 'Lunes',
+	  					'martes' => 'Martes',
+	  					'miercoles' => 'Miércoles',
+	  					'jueves' => 'Jueves',
+	  					'viernes' => 'Viernes',
+	  					'sabado' => 'Sábado',
+	  					'domingo' => 'Domingo'
+	  				],
+	  				// 'max' => 8, // maximum rows allowed in the table
+	  				'min' => 1, // minimum rows allowed in the table
+	  				'fake' => true,
+	  				'store_in' => 'extras',
+	  			]);
     }
     private function contactanos()
     {
@@ -201,11 +220,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
@@ -239,11 +258,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
@@ -277,14 +296,32 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
+	  $this->crud->addField([
+  				  'name' => 'emisoras',
+  				  'type' => 'table',
+  				  'label' => 'Lista de emisoras',
+  				  'entity_singular' => 'emisora', // used on the "Add X" button
+
+  				  'columns' => [
+  					  'onda' => 'ONDA',
+  					  'frecuencia' => 'FRECUENCIA',
+  					  'pais' => 'PAIS',
+  					  'zona' => 'ZONA',
+  					  'anfitrion' => 'ANFITRION'
+  				  ],
+  				  // 'max' => 8, // maximum rows allowed in the table
+  				  'min' => 1, // minimum rows allowed in the table
+  				  'fake' => true,
+  				  'store_in' => 'extras',
+  			  ]);
     }
     private function colabora_con_mmradio()
     {
@@ -315,11 +352,11 @@ trait PageTemplates
       $this->crud->addField([   // CustomHTML
                       'name' => 'content_separator',
                       'type' => 'custom_html',
-                      'value' => '<br><h2>Content</h2><hr>',
+                      'value' => '<br><h2>Contenidos</h2><hr>',
                   ]);
       $this->crud->addField([
                       'name' => 'content',
-                      'label' => 'Content',
+                      'label' => 'Contenidos',
                       'type' => 'wysiwyg',
                       'placeholder' => 'Your content here',
                   ]);
