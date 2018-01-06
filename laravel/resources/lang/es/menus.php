@@ -6,6 +6,6 @@
     'menu-programacion' => 'PROGRAMACIÓN',
     'menu-contactanos' => 'CONTÁCTANOS',
     'menu-apps-de-descarga' => 'APPS DE DESCARGA',
-    'menu-red-de-emisoras-fm' => 'RED DE EMISORAS FM',
+    'menu-red-de-emisoras-locales' => 'RED DE EMISORAS FM',
     'menu-colabora-con-mmradio' => 'COLABORA CON MMRADIO',
 ];
