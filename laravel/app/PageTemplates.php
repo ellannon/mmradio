@@ -311,11 +311,11 @@ trait PageTemplates
 			'entity_singular' => 'emisora', // used on the "Add X" button
 
 			'columns' => [
-				'anfitrion' => 'ANFITRION'
+				'anfitrion' => 'ANFITRION',
 				'zona' => 'ZONA',
 				'pais' => 'PAIS',
 				'frecuencia' => 'FRECUENCIA',
-				'onda' => 'ONDA',
+				'onda' => 'ONDA'
 			],
 			// 'max' => 8, // maximum rows allowed in the table
 			'min' => 1, // minimum rows allowed in the table
