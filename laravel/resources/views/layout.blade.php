@@ -11,6 +11,7 @@
       <link rel='stylesheet' href="{{asset('css/reboot.min.css')}}">
       <link rel='stylesheet' href="{{asset('css/bootstrap-grid.min.css')}}">
       <link rel='stylesheet' href="{{asset('css/style.css')}}">
+	  <link rel="manifest" href="{{asset('manifest.json')}}">
    </head>
    <body>
 	   <div class="content d-flex flex-column justify-content-between">
@@ -22,4 +23,15 @@
 	   </div>
 	  @include('partials.js')
    </body>
+   <script>
+	   if ('serviceWorker' in navigator) {
+		   console.log("Will the service worker register?");
+		   navigator.serviceWorker.register('service-worker.js')
+		   .then(function(reg){
+			   console.log("Yes, it did.");
+		   }).catch(function(err) {
+			   console.log("No it didn't. This happened:", err)
+		   });
+	   }
+   </script>
 </html>

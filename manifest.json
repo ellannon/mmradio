@@ -1,0 +1,30 @@
+{
+  "short_name": "MMRadio",
+  "name": "MMRadio",
+  "theme_color": "#4A90E2",
+  "background_color": "#F7F8F9",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/admin_logo.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/admin_logo.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/admin_logo.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "images/admin_logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/?utm_source=launcher"
+}
