@@ -29,7 +29,9 @@
 		player.volume=document.getElementById("change_vol2").value;
 	}
 	$(document).ready(function(){
-		play_aud();
+		@if ($page->slug == 'home')
+			play_aud();
+		@endif
 
 		@if ($mobile)
 			$('.centerButton.active').show();

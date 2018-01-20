@@ -6,7 +6,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-					<div class="text-center">
+					<div class="text-center" style="{{($page->slug == 'home') ? 'opacity:0;' : null}}">
 						<a class="" href="{{url('')}}">
 							<img width="80" class="align-self-center img-fluid" src="{{asset('images/logo.png')}}" alt="">
 						</a>

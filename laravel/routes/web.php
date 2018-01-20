@@ -11,6 +11,9 @@
 |
 */
 
+Route::post('contact', ['as' => 'contact', 'uses' => 'FormController@contact']);
+Route::post('colaborate', ['as' => 'colaborate', 'uses' => 'FormController@colaborate']);
+
 // ADMIN
 Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),
