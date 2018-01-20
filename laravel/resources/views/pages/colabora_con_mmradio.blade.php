@@ -16,6 +16,9 @@
 				<div class="col-xs-12 col-sm-12 col-md-8 pageContent">
 					{!!$page->content!!}
 				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
+					<a href="mailto:colaboradores@mmradio.es">colaboradores@mmradio.es</a>
+				</div>
 				{{-- @if (Session::get('status') == 'Colaboración enviada!')
 					<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
 						Gracias por su colaboración.
