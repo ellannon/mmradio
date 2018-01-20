@@ -16,7 +16,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-8 pageContent">
 					{!!$page->content!!}
 				</div>
-				@if (Session::get('status') == 'Colaboración enviada!')
+				{{-- @if (Session::get('status') == 'Colaboración enviada!')
 					<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
 						Gracias por su colaboración.
 					</div>
@@ -26,7 +26,7 @@
 							@include('partials.form')
 						{!!Form::close()!!}
 					</div>
-				@endif
+				@endif --}}
 			</div>
 		</div>
 	</section>
