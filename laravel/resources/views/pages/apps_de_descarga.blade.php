@@ -17,6 +17,11 @@
 					{!!$page->content!!}
 				</div>
 			</div>
+			<div class="row mt-5">
+				<div class="col-xs-12 col-sm-12 col-md-12 m-auto pageContent">
+					<button id="prompter" class="btn btn-primary" type="button" name="button">Descarga la APP</button>
+				</div>
+			</div>
 		</div>
 	</section>
 @endsection
