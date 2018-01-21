@@ -11,7 +11,7 @@
 	  <link rel='stylesheet' href="{{asset('css/reboot.min.css')}}">
 	  <link rel='stylesheet' href="{{asset('css/bootstrap-grid.min.css')}}">
 	  <link rel='stylesheet' href="{{asset('css/style.css')}}">
-	  <link rel="manifest" href="{{asset('manifest.json')}}">
+	  <link rel='stylesheet' href="{{asset('css/addtohomescreen.css')}}">
 	</head>
 	<body>
 	   <div class="content d-flex flex-column justify-content-between">
