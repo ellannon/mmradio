@@ -40,7 +40,7 @@ body{
 h1, h2, h3, h4, h5, p{
 	color: rgba(255,255,255,.8) !important;
 	text-align: justify;
-   	text-align-last: justify;
+   	text-align-last: left;
 	line-height: normal;
 }
 h1{
@@ -129,6 +129,7 @@ footer h2{
   left: 0;
   height: 100%;
   transform: translate3d(0, 0, 0);
+  text-align-last: justify;
 }
 .tech-slideshow .mover-1 {
   animation: moveSlideshow 10s linear infinite;
