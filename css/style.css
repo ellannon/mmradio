@@ -109,6 +109,7 @@ input[type="image"]{
 }
 
 footer h2{
+	font-family: Brush Script MT, cursive;;
 	font-size: 3rem;
 	white-space: nowrap;
 }
