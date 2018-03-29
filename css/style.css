@@ -110,8 +110,11 @@ input[type="image"]{
 	margin-right: 5px;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Alegreya');
 footer h2{
-	font-family: Vivaldi, cursive;
+	font-weight: 400;
+	font-style: italic;
+	font-family: Alegreya;
 	font-size: 4rem;
 	white-space: nowrap;
 }
