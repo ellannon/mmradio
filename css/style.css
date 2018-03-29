@@ -37,10 +37,11 @@ body{
 .nav-link{
 	font-weight: bold;
 }
-h1, h2, h3, h4, h5, p{
+
+h1, h2, h3, h4, h5,p {
 	color: rgba(255,255,255,.8) !important;
 	text-align: justify;
-   	text-align-last: justify;
+   	text-align-last: left;
 	line-height: normal;
 }
 h1{
@@ -49,6 +50,7 @@ h1{
 .mmradioLetters > h1, .mmradioLetters > h5, .mmradioLetters > p{
 	margin: auto;
 	max-width: 380px;
+	text-align-last: justify !important;
 }
 .mmradioLetters > p{
 	font-size: 1.25rem;
@@ -109,7 +111,8 @@ input[type="image"]{
 }
 
 footer h2{
-	font-size: 3rem;
+	font-family: Vivaldi, cursive;
+	font-size: 4rem;
 	white-space: nowrap;
 }
 
@@ -129,6 +132,7 @@ footer h2{
   left: 0;
   height: 100%;
   transform: translate3d(0, 0, 0);
+  text-align-last: justify;
 }
 .tech-slideshow .mover-1 {
   animation: moveSlideshow 10s linear infinite;

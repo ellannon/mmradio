@@ -42,9 +42,12 @@
     text-shadow: none !important;
     box-shadow: none !important;
   }
+
   a,
+
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
+
   }
   abbr[title]::after {
     content: " (" attr(title) ")";

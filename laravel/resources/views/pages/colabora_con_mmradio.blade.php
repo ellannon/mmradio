@@ -17,7 +17,26 @@
 					{!!$page->content!!}
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
-					<a href="mailto:colaboradores@mmradio.es">colaboradores@mmradio.es</a>
+					<div class="form-group">
+						{{Form::label ('Nombre:')}}
+						{{Form::input('text','name',null,array('class'=>'form-control'))}}
+					</div>
+
+					<div class="form-group">
+					{{Form::label ('Email:')}}
+					{{Form::input('email','email',null,array('class'=>'form-control'))}}
+					</div>
+
+					<div class="form-group">
+					{{Form::label ('Asunto:')}}
+					{{Form::input('text','subject',null,array('class'=>'form-control'))}}
+					</div>
+
+					<div class="form-group">
+					{{Form::label ('Mensaje:')}}
+					{{Form::textarea('msg',null,array('class'=>'form-control'))}}
+					</div>
+					Formulario no disponible. Lamentamos las molestias.
 				</div>
 				{{-- @if (Session::get('status') == 'Colaboración enviada!')
 					<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
