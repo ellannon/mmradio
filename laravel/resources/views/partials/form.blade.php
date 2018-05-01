@@ -17,7 +17,7 @@
 </div>
 <div class="form-group">
 	{!!Form::label('subject', 'Asunto')!!}
-	{!!Form::input('subject', '', array('class'=>'form-control'))!!}
+	{!!Form::text('subject', '', ['class'=>'form-control'])!!}
 </div>
 <div class="form-group">
 	{!!Form::label('message', 'Mensaje')!!}
