@@ -16,10 +16,10 @@ class FormController extends Controller
 			'message' => 'required'
 		]);
 
-		Mail::send('emails.email', ['data' => $request->all()], function ($m) use ($request) {
+		Mail::send('emails.email', ['message' => $request->message], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Contacto');
 
-            $m->to('contact@mmradio.es')->subject('Contacto de '.$request->name);
+            $m->to('contact@mmradio.es')->subject('Contacto de '.$request->name.' Motivo: '.$request->subject);
         });
 
 		return back()->with('status', 'Contacto enviado!');
@@ -34,10 +34,10 @@ class FormController extends Controller
 			'message' => 'required'
 		]);
 
-		Mail::send('emails.email', ['data' => $request->all()], function ($m) use ($request) {
+		Mail::send('emails.email', ['message' => $request->message], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Colabora');
 
-            $m->to('colaboradores@mmradio.es')->subject('Colaboración de '.$request->name);
+            $m->to('colaboradores@mmradio.es')->subject('Colaboración de '.$request->name.' Motivo: '.$request->subject);
         });
 
 		return back()->with('status', 'Colaboración enviada!');
