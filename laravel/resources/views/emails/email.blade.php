@@ -1,5 +1,5 @@
 <table style="width: 100%;">
 	<tr>
-		<td>{!!$message!!}</td>
+		<td>{!!$mensaje!!}</td>
 	</tr>
 </table>
