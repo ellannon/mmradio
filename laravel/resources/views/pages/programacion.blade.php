@@ -24,7 +24,7 @@
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg">
 								<div class="text-uppercase border border-top-0 border-left-0 border-right-0 text-center p-2 mt-3 mb-3"><span>{!!$dia!!}</span></div>
 								@foreach ($programa as $value)
-									<div class="text-center p-2"><span>{!!$value!!}</span></div>
+									<div class="text-center p-2 grid-item"><span>{!!$value!!}</span></div>
 								@endforeach
 							</div>
 						@endforeach
