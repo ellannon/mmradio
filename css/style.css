@@ -155,7 +155,7 @@ footer h2{
     transform: translateX(-66.6666%);
   }
 }
-@media min-width: 768px {
+@media (min-width: 768px) {
 	.grid-item{
 		min-height: 80px;
 	}
