@@ -49,5 +49,7 @@
 			$('.centerButton').hide();
 			$('.centerButton.active').show();
 		});
+
+		$('.modal').modal('toggle')
 	});
 </script>

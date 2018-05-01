@@ -17,16 +17,13 @@
 					{!!$page->content!!}
 				</div>
 				@if (Session::get('status') == 'Colaboración enviada!')
-					<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
-						Gracias por su colaboración.
-					</div>
-				@else
-					<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
-						{!!Form::open(['route' => 'colaborate'])!!}
-							@include('partials.form')
-						{!!Form::close()!!}
-					</div>
+					@include('partials.modal')
 				@endif
+				<div class="col-xs-12 col-sm-12 col-md-4 m-auto">
+					{!!Form::open(['route' => 'colaborate'])!!}
+						@include('partials.form')
+					{!!Form::close()!!}
+				</div>
 			</div>
 		</div>
 	</section>
