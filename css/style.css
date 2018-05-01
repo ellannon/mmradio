@@ -48,17 +48,17 @@ h1 big{
 	padding: 0;
 	margin: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 379px) {
 	h1{
-		font-size: 2.6rem;
+		font-size: 2.4rem;
 	}
 }
-@media (min-width: 768px) {
+@media (min-width: 380px) {
 	h1{
-		font-size: 3rem;
+		font-size: 3.1rem;
 	}
 }
-@media (min-width: 992px) {
+@media (min-width: 420px) {
 	h1{
 		font-size: 3.6rem;
 	}
