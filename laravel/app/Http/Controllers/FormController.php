@@ -9,6 +9,13 @@ class FormController extends Controller
 {
 	public function contact(Request $request)
 	{
+		$this->validate($request, [
+			'name' => 'required',
+			'email' => 'required|email',
+			'subject' => 'required',
+			'message' => 'required'
+		]);
+		
 		Mail::send('emails.email', ['data' => $request], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Contacto');
 
@@ -20,6 +27,13 @@ class FormController extends Controller
 
 	public function colaborate(Request $request)
 	{
+		$this->validate($request, [
+			'name' => 'required',
+			'email' => 'required|email',
+			'subject' => 'required',
+			'message' => 'required'
+		]);
+		
 		Mail::send('emails.email', ['data' => $request], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Colabora');
 
