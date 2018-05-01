@@ -15,8 +15,8 @@ class FormController extends Controller
 			'subject' => 'required',
 			'message' => 'required'
 		]);
-		
-		Mail::send('emails.email', ['data' => $request], function ($m) use ($request) {
+
+		Mail::send('emails.email', ['data' => $request->all()], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Contacto');
 
             $m->to('contact@mmradio.es')->subject('Contacto de '.$request->name);
@@ -33,8 +33,8 @@ class FormController extends Controller
 			'subject' => 'required',
 			'message' => 'required'
 		]);
-		
-		Mail::send('emails.email', ['data' => $request], function ($m) use ($request) {
+
+		Mail::send('emails.email', ['data' => $request->all()], function ($m) use ($request) {
             $m->from($request->email, 'MMRadio Colabora');
 
             $m->to('colaboradores@mmradio.es')->subject('Colaboración de '.$request->name);
