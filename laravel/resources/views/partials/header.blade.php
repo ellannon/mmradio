@@ -12,14 +12,14 @@
 						</a>
 					</div>
 					<ul class="navbar-nav w-100 justify-content-end text-left">
-						@foreach ($menus as $slug)
+						@foreach ($menus as $menu)
 							<li class="nav-item">
-								@if ($slug == 'apps-de-descarga')
+								@if ($menu->slug == 'apps-de-descarga')
 									@if ($mobile)
-										<a class="nav-link" href="{{$slug}}"> {!!trans('home.menu-'.$slug)!!} </a>
+										<a class="nav-link" href="{{$menu->slug}}"> {!!$menu->title!!} </a>
 									@endif
 								@else
-									<a class="nav-link" href="{{$slug}}"> {!!trans('home.menu-'.$slug)!!} </a>
+									<a class="nav-link" href="{{$menu->slug}}"> {!!$menu->title!!} </a>
 								@endif
 							</li>
 						@endforeach

@@ -29,7 +29,7 @@ class PageController extends Controller
 
         $this->data['title'] = $page->title;
         $this->data['mobile'] = $this->mobile;
-        $this->data['menus'] = Page::where('slug', '<>', 'home')->where('slug', '<>', 'estatutos')->get()->pluck('slug');
+        $this->data['menus'] = Page::where('slug', '<>', 'home')->where('slug', '<>', 'estatutos')->orderBy('ordre', 'ASC')->get();
         $this->data['page'] = $page->withFakes();
 
 		switch ($page->id) {
