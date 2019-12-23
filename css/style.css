@@ -7,11 +7,13 @@ html {
 }
 html, body, .content{
     min-height: 100vh;
+	overflow-y: auto;
 }
 body{
 	font-family: arial;
 	font-size: .9rem;
 	margin: 0;
+	padding: 0;
 	background-image: url("../images/fondo.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -140,7 +142,7 @@ footer h2{
 	font-weight: 400;
 	font-style: italic;
 	font-family: Alegreya;
-	font-size: 4rem;
+	font-size: 3rem;
 	white-space: nowrap;
 }
 
@@ -156,7 +158,6 @@ footer h2{
 .tech-slideshow > h2 {
   width: 2293px;
   position: absolute;
-  top: 0;
   left: 0;
   height: 100%;
   transform: translate3d(0, 0, 0);
