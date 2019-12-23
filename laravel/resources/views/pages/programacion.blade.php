@@ -14,11 +14,6 @@
 			</div>
 			<div class="row mt-5">
 				<div class="col-xs-12 col-sm-12 col-md-12 m-auto pageContent">
-					{!!$page->content!!}
-				</div>
-			</div>
-			<div class="row mt-5">
-				<div class="col-xs-12 col-sm-12 col-md-12 m-auto pageContent">
 					<div class="row">
 						@foreach ($dias as $dia => $programa)
 							<div class="col-xs-12 col-sm-12 col-md-4 col-lg">
@@ -29,6 +24,11 @@
 							</div>
 						@endforeach
 					</div>
+				</div>
+			</div>
+			<div class="row mt-5 mb-5">
+				<div class="col-xs-12 col-sm-12 col-md-12 m-auto pageContent">
+					{!!$page->content!!}
 				</div>
 			</div>
 		</div>

@@ -166,12 +166,6 @@ trait PageTemplates
 			'value' => '<br><h2>Contenidos</h2><hr>',
 		]);
 		$this->crud->addField([
-			'name' => 'content',
-			'label' => 'Contenidos',
-			'type' => 'wysiwyg',
-			'placeholder' => 'Your content here',
-		]);
-		$this->crud->addField([
 			'name' => 'programacion',
 			'type' => 'table',
 			'label' => 'Tabla de contenidos',
@@ -189,6 +183,12 @@ trait PageTemplates
 			'min' => 1, // minimum rows allowed in the table
 			'fake' => true,
 			'store_in' => 'extras',
+		]);
+		$this->crud->addField([
+			'name' => 'content',
+			'label' => 'Contenidos',
+			'type' => 'wysiwyg',
+			'placeholder' => 'Your content here',
 		]);
 	}
 	private function contactanos()
