@@ -1,7 +1,7 @@
 <?php
 
 namespace Backpack\PageManager\app\Http\Controllers\Admin;
-use Auth;
+
 use App\PageTemplates;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
@@ -14,8 +14,6 @@ class PageCrudController extends CrudController
 
     public function setup($template_name = false)
     {
-        parent::__construct();
-
         $modelClass = config('backpack.pagemanager.page_model_class', 'Backpack\PageManager\app\Models\Page');
 
         /*
@@ -64,10 +62,6 @@ class PageCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->addButtonFromModelFunction('line', 'open', 'getOpenButton', 'beginning');
-
-		if (!Auth::user()->hasRole('Superadmin')) {
-			$this->crud->denyAccess(['create', 'delete']);
-		}
     }
 
     // -----------------------------------------------
@@ -77,10 +71,12 @@ class PageCrudController extends CrudController
     // Overwrites the CrudController create() method to add template usage.
     public function create($template = false)
     {
+        $template = request('template');
+
         $this->addDefaultPageFields($template);
         $this->useTemplate($template);
 
-        return parent::create();
+        return parent::create($template);
     }
 
     // Overwrites the CrudController store() method to add template usage.
@@ -95,6 +91,8 @@ class PageCrudController extends CrudController
     // Overwrites the CrudController edit() method to add template usage.
     public function edit($id, $template = false)
     {
+        $template = request('template');
+
         // if the template in the GET parameter is missing, figure it out from the db
         if ($template == false) {
             $model = $this->crud->model;
@@ -132,6 +130,7 @@ class PageCrudController extends CrudController
                                 'name' => 'template',
                                 'label' => trans('backpack::pagemanager.template'),
                                 'type' => 'select_page_template',
+                                'view_namespace'  => 'pagemanager::fields',
                                 'options' => $this->getTemplatesArray(),
                                 'value' => $template,
                                 'allows_null' => false,
@@ -210,7 +209,7 @@ class PageCrudController extends CrudController
         $templates = $this->getTemplates();
 
         foreach ($templates as $template) {
-            $templates_array[$template->name] = $this->crud->makeLabel($template->name);
+            $templates_array[$template->name] = str_replace('_', ' ', title_case($template->name));
         }
 
         return $templates_array;

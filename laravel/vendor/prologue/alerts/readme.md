@@ -1,4 +1,4 @@
-# Alerts for Laravel 5
+# Alerts for Laravel 6
 
 [![Build Status](https://img.shields.io/travis/prologuephp/alerts/master.svg?style=flat-square)](https://travis-ci.org/prologuephp/alerts)
 [![Quality Score](https://img.shields.io/scrutinizer/g/prologuephp/alerts.svg?style=flat-square)](https://scrutinizer-ci.com/g/prologuephp/alerts)
@@ -6,13 +6,11 @@
 [![Packagist Version](https://img.shields.io/packagist/v/prologue/alerts.svg?style=flat-square)](https://packagist.org/packages/prologue/alerts)
 [![Total Downloads](https://img.shields.io/packagist/dt/prologue/lock.svg?style=flat-square)](https://packagist.org/packages/prologue/alerts)
 
-Alerts is a package that handles global site messages in Laravel 5.
+Alerts is a package that handles global site messages in Laravel 6.
 
 I first got the idea for creating this package after [a blog post](http://toddish.co.uk/blog/global-site-messages-in-laravel-4/) I read by [Todd Francis](http://toddish.co.uk/). This package uses much of the concepts of his blog post as well as the concept of alert levels which [Illuminate's Log package](https://github.com/illuminate/log) uses.
 
-Maintained by [Dries Vints](https://github.com/driesvints)  
-[@driesvints](https://twitter.com/driesvints)  
-[driesvints.com](http://driesvints.com)  
+Maintained by [Cristian Tabacitu](tabacitu) thanks to its use in [Backpack for Laravel](http://backpackforlaravel.com/).
 
 ## Table of Contents
 
@@ -28,13 +26,13 @@ Maintained by [Dries Vints](https://github.com/driesvints)
 
 ## Installation
 
-You can install the package for your Laravel 5 project through Composer.
+You can install the package for your Laravel 6 project through Composer.
 
 ```bash
 $ composer require prologue/alerts
 ```
 
-Register the service provider in `app/config/app.php`.
+For Laravel 5.4 and below, register the service provider in `app/config/app.php`.
 
 ```php
 'Prologue\Alerts\AlertsServiceProvider',

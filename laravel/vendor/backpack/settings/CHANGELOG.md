@@ -19,6 +19,42 @@ All Notable changes to `Backpack Settings` will be documented in this file
 ### Security
 - Nothing
 
+## [2.0.31] - 2018-04-23
+
+## Added
+- German translation;
+
+## Fixed
+- show active settings in AjaxDataTables;
+
+
+## [2.0.30] - 2018-03-15
+
+## Fixed
+- ```Setting``` getter and setter now trigger exception or return false if operation was unsuccessful;
+
+
+## [2.0.29] - 2018-03-13
+
+## Fixed
+- unique added to key column;
+
+
+## [2.0.28] - 2018-03-13
+
+## Added
+- ```Setting``` alias;
+- ```Setting::get()``` method; fixes 
+- ```Setting::set()``` method;
+
+## Fixed
+- json_encode() field instead of casting it to array - merged #44; fixes #33;
+
+
+## [2.0.27] - 2017-12-18
+
+## Fixed
+- routes are setup in the boot() method - merged #65;
 
 ## [2.0.26] - 2017-12-02
 

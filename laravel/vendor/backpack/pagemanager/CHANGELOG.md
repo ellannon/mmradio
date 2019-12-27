@@ -22,6 +22,40 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Nothing
 
 
+## 1.1.28 - 2019-02-27
+
+### Fixed
+- #79, merged #81 - changing template on Create page;
+
+## 1.1.27 - 2018-12-06
+
+### Fixed
+- #75 - using old version of select_page_template field;
+
+
+## 1.1.26 - 2018-11-16
+
+### Fixed
+- #73 - hotfix;
+
+## 1.1.25 - 2018-11-16
+
+### Fixed
+- #73 - converting template method name to a readable name stripped characters in some instances;
+
+## 1.1.24 - 2018-10-16
+
+### Added
+- PT translation;
+- merged #70 - using custom Backpack guard as defined by ```backpack_auth()```;
+- put PageManager panel behind standard Backpack middleware (defined in Base config file);
+
+## 1.1.23 - 2018-03-13
+
+### Added
+- FR, DE and NL translations;
+
+
 ## 1.1.22 - 2017-11-02
 
 ### Added

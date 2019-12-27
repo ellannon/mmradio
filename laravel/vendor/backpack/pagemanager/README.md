@@ -9,8 +9,11 @@
 
 An interface to let your admins add and edit presentation pages to your Laravel 5 website, by defining page templates with any number of content areas and any number of content types. Uses [Laravel Backpack](https://github.com/laravel-backpack).
 
+![Backpack PageManager edit page](https://backpackforlaravel.com/uploads/screenshots/page_edit.png "PageManager edit page")
+
+
 > ### Security updates and breaking changes
-> Please **[subscribe to the Backpack Newsletter](http://eepurl.com/bUEGjf)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
+> Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 
 ## Install
@@ -141,12 +144,12 @@ Backpack is free for non-commercial use and 39 EUR/project for commercial use. P
 [ico-travis]: https://img.shields.io/travis/laravel-backpack/PageManager/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/PageManager.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/laravel-backpack/PageManager.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/laravel-backpack/PageManager.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/backpack/pagemanager.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/laravel-backpack/PageManager
 [link-travis]: https://travis-ci.org/laravel-backpack/PageManager
 [link-scrutinizer]: https://scrutinizer-ci.com/g/laravel-backpack/PageManager/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/laravel-backpack/PageManager
-[link-downloads]: https://packagist.org/packages/laravel-backpack/PageManager
+[link-downloads]: https://packagist.org/packages/backpack/pagemanager
 [link-author]: https://github.com/tabacitu
 [link-contributors]: ../../contributors

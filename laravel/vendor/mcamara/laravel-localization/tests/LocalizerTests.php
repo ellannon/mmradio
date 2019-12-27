@@ -25,7 +25,7 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
         ];
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }
@@ -67,7 +67,15 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             app('router')->get(app('laravellocalization')->transRoute('LaravelLocalization::routes.view_project'), ['as'=> 'view_project', function () {
                 return app('laravellocalization')->getLocalizedURL('es') ?: 'Not url available';
             }, ]);
+
+            app('router')->get(app('laravellocalization')->transRoute('LaravelLocalization::routes.manage'), ['as'=> 'manage', function () {
+                return app('laravellocalization')->getLocalizedURL('es') ?: 'Not url available';
+            }, ]);
         });
+
+        app('router')->get('/skipped', ['as'=> 'skipped', function () {
+            return Request::url();
+        }, ]);
     }
 
     /**
@@ -79,6 +87,41 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
     {
         parent::refreshApplication();
         $this->setRoutes($locale);
+    }
+
+    /**
+     * Create fake request
+     * @param  [type] $method     [description]
+     * @param  [type] $content    [description]
+     * @param  string $uri        [description]
+     * @param  array  $server     [description]
+     * @param  array  $parameters [description]
+     * @param  array  $cookies    [description]
+     * @param  array  $files      [description]
+     * @return [type]             [description]
+     */
+    protected function createRequest(
+        $uri = '/test',
+        $method = 'GET',
+        $parameters = [],
+        $cookies = [],
+        $files = [],
+        $server = ['CONTENT_TYPE' => 'application/json'],
+        $content = null
+    )
+    {
+        $request = new \Illuminate\Http\Request;
+        return $request->createFromBase(
+            \Symfony\Component\HttpFoundation\Request::create(
+                $uri,
+                'GET',
+                [],
+                [],
+                [],
+                $server,
+                $content
+            )
+        );
     }
 
     /**
@@ -249,6 +292,11 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             app('laravellocalization')->getLocalizedURL('en', $this->test_url.'test')
         );
 
+        $this->assertEquals(
+            $this->test_url.'test?a=1',
+            app('laravellocalization')->getLocalizedURL('en', $this->test_url.'test?a=1')
+        );
+
         $crawler = $this->call(
             'GET',
             app('laravellocalization')->getLocalizedURL('en', $this->test_url.'test'),
@@ -269,6 +317,89 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
         $this->assertEquals(
             $this->test_url.'es/test',
             app('laravellocalization')->getLocalizedURL('es', $this->test_url.'test')
+        );
+
+        $this->assertEquals(
+            $this->test_url.'es/test?a=1',
+            app('laravellocalization')->getLocalizedURL('es', $this->test_url.'test?a=1')
+        );
+    }
+
+    public function testGetLocalizedURLWithQueryStringAndhideDefaultLocaleInURL()
+    {
+        app('config')->set('laravellocalization.hideDefaultLocaleInURL', true);
+         app()['request'] = $this->createRequest(
+            $uri = 'en/about?q=2'
+        );
+        $laravelLocalization = new \Mcamara\LaravelLocalization\LaravelLocalization();
+        $laravelLocalization->transRoute('LaravelLocalization::routes.about');
+
+        $this->assertEquals(
+            $this->test_url . 'about?q=2',
+            $laravelLocalization->getLocalizedURL()
+        );
+    }
+
+    public function testGetLocalizedURLWithQueryStringAndNotTranslatedRoute()
+    {
+         app()['request'] = $this->createRequest(
+            $uri = 'en/about?q=2'
+        );
+        $laravelLocalization = new \Mcamara\LaravelLocalization\LaravelLocalization();
+
+        $this->assertEquals(
+            $this->test_url . 'en/about?q=2',
+            $laravelLocalization->getLocalizedURL()
+        );
+    }
+
+    /**
+     * @param string $path
+     * @param string|bool $expectedRouteName
+     *
+     * @dataProvider getRouteNameFromAPathDataProvider
+     */
+    public function testGetRouteNameFromAPath($path, $expectedRouteName)
+    {
+        $this->assertEquals(
+            $expectedRouteName,
+            app('laravellocalization')->getRouteNameFromAPath($path)
+        );
+    }
+
+    public function getRouteNameFromAPathDataProvider()
+    {
+        return [
+            [$this->test_url,                       false],
+            [$this->test_url.'es',                  false],
+            [$this->test_url.'en/about',            'LaravelLocalization::routes.about'],
+            [$this->test_url.'ver/1',               false],
+            [$this->test_url.'view/1',              'LaravelLocalization::routes.view'],
+            [$this->test_url.'view/1/project',      'LaravelLocalization::routes.view_project'],
+            [$this->test_url.'view/1/project/1',    'LaravelLocalization::routes.view_project'],
+            [$this->test_url.'en/view/1/project/1',    'LaravelLocalization::routes.view_project'],
+            [$this->test_url.'manage/1',            'LaravelLocalization::routes.manage'],
+            [$this->test_url.'manage',              'LaravelLocalization::routes.manage'],
+            [$this->test_url.'manage/',             'LaravelLocalization::routes.manage'],
+            [$this->test_url.'manage/0',            'LaravelLocalization::routes.manage'],
+            [$this->test_url.'manage/0?ex=2&ex2=a', 'LaravelLocalization::routes.manage'],
+        ];
+    }
+
+    public function testGetLocalizedUrlForIgnoredUrls() {
+        $crawler = $this->call(
+            'GET',
+            $this->test_url2.'/skipped',
+            [],
+            [],
+            [],
+            ['HTTP_ACCEPT_LANGUAGE' => 'en,es']
+        );
+
+        $this->assertResponseOk();
+        $this->assertEquals(
+            $this->test_url2.'/skipped',
+            $crawler->getContent()
         );
     }
 
@@ -301,6 +432,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [false, false, 'es', $this->test_url.'ver/1',               $this->test_url.'es/ver/1'],
             [false, false, 'es', $this->test_url.'view/1/project',      $this->test_url.'es/ver/1/proyecto'],
             [false, false, 'es', $this->test_url.'view/1/project/1',    $this->test_url.'es/ver/1/proyecto/1'],
+            [false, false, 'es', $this->test_url.'en/view/1/project/1', $this->test_url.'es/ver/1/proyecto/1'],
+            [false, false, 'es', $this->test_url.'manage/1',            $this->test_url.'es/administrar/1'],
+            [false, false, 'es', $this->test_url.'manage',              $this->test_url.'es/administrar'],
+            [false, false, 'es', $this->test_url.'manage/',             $this->test_url.'es/administrar'],
+            [false, false, 'es', $this->test_url.'manage/0',            $this->test_url.'es/administrar/0'],
+            [false, false, 'es', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'es/administrar/0?ex=2&ex2=a'],
 
             // Do not hide default
             [false, false, 'en', $this->test_url.'en',                  $this->test_url.'en'],
@@ -308,6 +445,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [false, false, 'en', $this->test_url.'ver/1',               $this->test_url.'en/ver/1'],
             [false, false, 'en', $this->test_url.'view/1/project',      $this->test_url.'en/view/1/project'],
             [false, false, 'en', $this->test_url.'view/1/project/1',    $this->test_url.'en/view/1/project/1'],
+            [false, false, 'en', $this->test_url.'en/view/1/project/1', $this->test_url.'en/view/1/project/1'],
+            [false, false, 'en', $this->test_url.'manage/1',            $this->test_url.'en/manage/1'],
+            [false, false, 'en', $this->test_url.'manage',              $this->test_url.'en/manage'],
+            [false, false, 'en', $this->test_url.'manage/',             $this->test_url.'en/manage'],
+            [false, false, 'en', $this->test_url.'manage/0',            $this->test_url.'en/manage/0'],
+            [false, false, 'en', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'en/manage/0?ex=2&ex2=a'],
 
             // Hide default
             [true,  false, 'es', $this->test_url,                       $this->test_url.'es'],
@@ -316,6 +459,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [true,  false, 'es', $this->test_url.'ver/1',               $this->test_url.'es/ver/1'],
             [true,  false, 'es', $this->test_url.'view/1/project',      $this->test_url.'es/ver/1/proyecto'],
             [true,  false, 'es', $this->test_url.'view/1/project/1',    $this->test_url.'es/ver/1/proyecto/1'],
+            [true,  false, 'es', $this->test_url.'en/view/1/project/1', $this->test_url.'es/ver/1/proyecto/1'],
+            [true,  false, 'es', $this->test_url.'manage/1',            $this->test_url.'es/administrar/1'],
+            [true,  false, 'es', $this->test_url.'manage',              $this->test_url.'es/administrar'],
+            [true,  false, 'es', $this->test_url.'manage/',             $this->test_url.'es/administrar'],
+            [true,  false, 'es', $this->test_url.'manage/0',            $this->test_url.'es/administrar/0'],
+            [true,  false, 'es', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'es/administrar/0?ex=2&ex2=a'],
 
             // Hide default
             [true,  false, 'en', $this->test_url.'en',                  $this->test_url.''],
@@ -323,6 +472,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [true,  false, 'en', $this->test_url.'ver/1',               $this->test_url.'ver/1'],
             [true,  false, 'en', $this->test_url.'view/1/project',      $this->test_url.'view/1/project'],
             [true,  false, 'en', $this->test_url.'view/1/project/1',    $this->test_url.'view/1/project/1'],
+            [true,  false, 'en', $this->test_url.'en/view/1/project/1', $this->test_url.'view/1/project/1'],
+            [true,  false, 'en', $this->test_url.'manage/1',            $this->test_url.'manage/1'],
+            [true,  false, 'en', $this->test_url.'manage',              $this->test_url.'manage'],
+            [true,  false, 'en', $this->test_url.'manage/',             $this->test_url.'manage'],
+            [true,  false, 'en', $this->test_url.'manage/0',            $this->test_url.'manage/0'],
+            [true,  false, 'en', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'manage/0?ex=2&ex2=a'],
 
             // Do not hide default FORCE SHOWING
             [false, true,  'es', $this->test_url,                       $this->test_url.'es'],
@@ -331,6 +486,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [false, true,  'es', $this->test_url.'ver/1',               $this->test_url.'es/ver/1'],
             [false, true,  'es', $this->test_url.'view/1/project',      $this->test_url.'es/ver/1/proyecto'],
             [false, true,  'es', $this->test_url.'view/1/project/1',    $this->test_url.'es/ver/1/proyecto/1'],
+            [false, true,  'es', $this->test_url.'en/view/1/project/1', $this->test_url.'es/ver/1/proyecto/1'],
+            [false, true,  'es', $this->test_url.'manage/1',            $this->test_url.'es/administrar/1'],
+            [false, true,  'es', $this->test_url.'manage',              $this->test_url.'es/administrar'],
+            [false, true,  'es', $this->test_url.'manage/',             $this->test_url.'es/administrar'],
+            [false, true,  'es', $this->test_url.'manage/0',            $this->test_url.'es/administrar/0'],
+            [false, true,  'es', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'es/administrar/0?ex=2&ex2=a'],
 
             // Do not hide default FORCE SHOWING
             [false, true,  'en', $this->test_url.'en',                  $this->test_url.'en'],
@@ -338,6 +499,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [false, true,  'en', $this->test_url.'ver/1',               $this->test_url.'en/ver/1'],
             [false, true,  'en', $this->test_url.'view/1/project',      $this->test_url.'en/view/1/project'],
             [false, true,  'en', $this->test_url.'view/1/project/1',    $this->test_url.'en/view/1/project/1'],
+            [false, true,  'en', $this->test_url.'en/view/1/project/1', $this->test_url.'en/view/1/project/1'],
+            [false, true,  'en', $this->test_url.'manage/1',            $this->test_url.'en/manage/1'],
+            [false, true,  'en', $this->test_url.'manage',              $this->test_url.'en/manage'],
+            [false, true,  'en', $this->test_url.'manage/',             $this->test_url.'en/manage'],
+            [false, true,  'en', $this->test_url.'manage/0',            $this->test_url.'en/manage/0'],
+            [false, true,  'en', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'en/manage/0?ex=2&ex2=a'],
 
             // Hide default FORCE SHOWING
             [true,  true,  'es', $this->test_url,                       $this->test_url.'es'],
@@ -346,6 +513,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [true,  true,  'es', $this->test_url.'ver/1',               $this->test_url.'es/ver/1'],
             [true,  true,  'es', $this->test_url.'view/1/project',      $this->test_url.'es/ver/1/proyecto'],
             [true,  true,  'es', $this->test_url.'view/1/project/1',    $this->test_url.'es/ver/1/proyecto/1'],
+            [true,  true,  'es', $this->test_url.'en/view/1/project/1', $this->test_url.'es/ver/1/proyecto/1'],
+            [true,  true,  'es', $this->test_url.'manage/1',            $this->test_url.'es/administrar/1'],
+            [true,  true,  'es', $this->test_url.'manage',              $this->test_url.'es/administrar'],
+            [true,  true,  'es', $this->test_url.'manage/',             $this->test_url.'es/administrar'],
+            [true,  true,  'es', $this->test_url.'manage/0',            $this->test_url.'es/administrar/0'],
+            [true,  true,  'es', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'es/administrar/0?ex=2&ex2=a'],
 
             // Hide default FORCE SHOWING
             [true,  true,  'en', $this->test_url.'en',                  $this->test_url.'en'],
@@ -353,6 +526,12 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             [true,  true,  'en', $this->test_url.'ver/1',               $this->test_url.'en/ver/1'],
             [true,  true,  'en', $this->test_url.'view/1/project',      $this->test_url.'en/view/1/project'],
             [true,  true,  'en', $this->test_url.'view/1/project/1',    $this->test_url.'en/view/1/project/1'],
+            [true,  true,  'en', $this->test_url.'en/view/1/project/1', $this->test_url.'en/view/1/project/1'],
+            [true,  true,  'en', $this->test_url.'manage/1',            $this->test_url.'en/manage/1'],
+            [true,  true,  'en', $this->test_url.'manage',              $this->test_url.'en/manage'],
+            [true,  true,  'en', $this->test_url.'manage/',             $this->test_url.'en/manage'],
+            [true,  true,  'en', $this->test_url.'manage/0',            $this->test_url.'en/manage/0'],
+            [true,  true,  'en', $this->test_url.'manage/0?ex=2&ex2=a', $this->test_url.'en/manage/0?ex=2&ex2=a'],
         ];
     }
 
@@ -410,6 +589,21 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
         $this->assertEquals(
             $this->test_url.'en/view/1',
             app('laravellocalization')->getURLFromRouteNameTranslated('en', 'LaravelLocalization::routes.view', ['id' => 1])
+        );
+    }
+
+    public function testLocalizedParameterFromTranslateUrl()
+    {
+        $model = new ModelWithTranslatableRoutes();
+
+        $this->assertEquals(
+            $this->test_url.'en/view/company',
+            app('laravellocalization')->getURLFromRouteNameTranslated('en', 'LaravelLocalization::routes.view', ['id' => $model])
+        );
+
+        $this->assertEquals(
+            $this->test_url.'es/ver/empresa',
+            app('laravellocalization')->getURLFromRouteNameTranslated('es', 'LaravelLocalization::routes.view', ['id' => $model])
         );
     }
 
@@ -596,6 +790,7 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
      * @dataProvider accept_language_variations_data
      */
     public function testLanguageNegotiation($accept_string, $must_resolve_to, $asd = null) {
+
         $full_config = include __DIR__ . '/full-config/config.php';
 
         $request = $this->createMock(\Illuminate\Http\Request::class);
@@ -611,8 +806,10 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
 
         $language = $negotiator->negotiateLanguage();
 
+
         $this->assertEquals($must_resolve_to, $language);
     }
+
 
     public function accept_language_variations_data() {
         $variations = [
@@ -624,7 +821,7 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
             ['fr-CA,fr;q=0.8', 'fr-CA'],
             ['fr-150', 'fr'],
             ['zh-Hant-cn', 'zh-Hant'],
-            ['zh-cn', 'zh']
+            ['zh-cn', 'zh'],
         ];
 
         $dataset = [];
@@ -633,5 +830,54 @@ class LocalizerTests extends \Orchestra\Testbench\BrowserKit\TestCase
         }
 
         return $dataset;
+    }
+
+    public function testLanguageNegotiationWithMapping() {
+
+        $accept_string = 'en-GB';
+        $must_resolve_to = 'uk';
+
+        $mapping = [
+            $accept_string => $must_resolve_to
+        ];
+
+        $full_config = include __DIR__ . '/full-config/config.php';
+
+        $full_config['supportedLocales']['uk'] = $full_config['supportedLocales']['en-GB'];
+        unset($full_config['supportedLocales']['en-GB']);
+
+        app('config')->set('laravellocalization.localesMapping', $mapping);
+
+        $request = $this->createMock(\Illuminate\Http\Request::class);
+        $request->expects($this->any())->method('header')->with('Accept-Language')->willReturn($accept_string);
+
+        $negotiator = app(\Mcamara\LaravelLocalization\LanguageNegotiator::class,
+            [
+                'defaultLocale' => 'wrong',
+                'supportedLanguages' => $full_config['supportedLocales'],
+                'request' => $request
+            ]
+        );
+
+        $language = $negotiator->negotiateLanguage();
+
+        $this->assertEquals($must_resolve_to, $language);
+    }
+
+    public function testSetLocaleWithMapping()
+    {
+        app('config')->set('laravellocalization.localesMapping', [
+            'en' => 'custom',
+        ]);
+
+        $this->assertEquals('custom', app('laravellocalization')->setLocale('custom'));
+        $this->assertEquals('en', app('laravellocalization')->getCurrentLocale());
+
+        $this->assertTrue(app('laravellocalization')->checkLocaleInSupportedLocales('en'));
+        $this->assertTrue(app('laravellocalization')->checkLocaleInSupportedLocales('custom'));
+
+        $this->assertEquals('http://localhost/custom/some-route', app('laravellocalization')->localizeURL('some-route', 'en'));
+        $this->assertEquals('http://localhost/custom/some-route', app('laravellocalization')->localizeURL('some-route', 'custom'));
+        $this->assertEquals('http://localhost/custom', app('laravellocalization')->localizeURL('http://localhost/custom', 'en'));
     }
 }
