@@ -159,7 +159,6 @@ footer h2{
   width: 2293px;
   position: absolute;
   left: 0;
-  height: 100%;
   transform: translate3d(0, 0, 0);
   text-align-last: justify;
 }
@@ -185,4 +184,10 @@ footer h2{
 	.grid-item{
 		min-height: 80px;
 	}
+}
+.fa.fa-facebook-square {
+	font-size: 1.5rem;
+}
+.copyPaster {
+	cursor: pointer;
 }

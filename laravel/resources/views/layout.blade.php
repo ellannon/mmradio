@@ -12,6 +12,7 @@
 	  <link rel='stylesheet' href="{{asset('css/bootstrap-grid.min.css')}}">
 	  <link rel='stylesheet' href="{{asset('css/style.css')}}">
 	  <link rel='stylesheet' href="{{asset('css/addtohomescreen.css')}}">
+	  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	</head>
 	<body>
 	   <div class="content d-flex flex-column justify-content-between">

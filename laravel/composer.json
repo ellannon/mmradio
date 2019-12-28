@@ -35,7 +35,8 @@
             "App\\": "app/"
         },
 		"files": [
-			"app/Helpers/MottoBluePrint.php"
+			"app/Helpers/MottoBluePrint.php",
+			"app/Helpers/Utils.php"
 		]
     },
     "autoload-dev": {

@@ -23,6 +23,7 @@
 								@endif
 							</li>
 						@endforeach
+						<li class="nav-item"><a target="_blank" class="nav-link" href="{{settingValue('facebook')}}"><i class="fa fa-facebook-square"></i></a></li>
 					</ul>
 				</div>
 			</nav>

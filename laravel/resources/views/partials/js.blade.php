@@ -50,6 +50,21 @@
 			$('.centerButton.active').show();
 		});
 
-		$('.modal').modal('toggle')
+		$('.modal').modal('toggle');
+
+		var span = document.querySelector(".copyPaster");
+
+		span.onclick = function() {
+			document.execCommand("copy");
+		}
+
+		span.addEventListener("copy", function(event) {
+			event.preventDefault();
+			if (event.clipboardData) {
+				event.clipboardData.setData("text/plain", span.textContent);
+
+				alert("IBAN copied to clipboard");
+			}
+		});
 	});
 </script>

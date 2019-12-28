@@ -32,6 +32,11 @@ class PageController extends Controller
         $this->data['menus'] = Page::where('slug', '<>', 'home')->where('slug', '<>', 'estatutos')->orderBy('ordre', 'ASC')->get();
         $this->data['page'] = $page->withFakes();
 
+		if (str_contains($this->data['page']->content, "##iban##")) {
+			$replacer = "<span class='copyPaster'>".settingValue('iban')."<i class='fa fa-copy ml-1'></i></span>";
+			$this->data['page']->content = str_replace("##iban##", $replacer, $this->data['page']->content);
+		}
+
 		switch ($page->id) {
 			case 4:
 				$this->data['dias'] = array('lunes' => [], 'martes' => [], 'miercoles' => [], 'jueves' => [], 'viernes' => [], 'sabado' => [], 'domingo' => []);
