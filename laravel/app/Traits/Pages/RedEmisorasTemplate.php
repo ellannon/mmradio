@@ -24,7 +24,6 @@ trait RedEmisorasTemplate
 				'zona' => 'ZONA',
 				'pais' => 'PAIS',
 				'frecuencia' => 'FRECUENCIA',
-				'onda' => 'ONDA'
 			],
 			// 'max' => 8, // maximum rows allowed in the table
 			'min' => 1, // minimum rows allowed in the table

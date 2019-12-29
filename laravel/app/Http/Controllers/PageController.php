@@ -48,13 +48,7 @@ class PageController extends Controller
 				}
 			break;
 			case 7:
-				$this->data['emisoras'] = array('anfitrion' => [], 'zona' => [], 'pais' => [], 'frecuencia' => [], 'onda' => []);
-				$emisoras = json_decode(json_decode($page->extras, true)['emisoras'], true);
-				foreach ($emisoras as $emisora) {
-					foreach ($emisora as $key => $value) {
-						$this->data['emisoras'][$key][] = $value;
-					}
-				}
+				$this->data['emisoras'] = json_decode(json_decode($page->extras, true)['emisoras'], true);
 			break;
 
 			default: break;
