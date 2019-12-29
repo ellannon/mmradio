@@ -19,7 +19,7 @@
 			</div>
 			<div class="row mt-3">
 				@foreach ($emisoras as $emisora)
-					<div class="col-xs-12 col-sm-6 col-md-4 m-auto pageContent">
+					<div class="col-xs-12 col-sm-6 col-md-4 pageContent">
 						<div class="text-uppercase border border-top-0 border-left-0 border-right-0 text-center p-2">
 							<span>Anfitrión/Zona/País/Frecuencia</span>
 						</div>
