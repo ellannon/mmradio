@@ -14,7 +14,7 @@ body{
 	font-size: .9rem;
 	margin: 0;
 	padding: 0;
-	background-color: #f5f0df;
+	background-color: #f0eee8;
 }
 .home{
 	background-image: url("../images/fondo.jpg");
@@ -214,4 +214,7 @@ footer h2{
 }
 .btn-primary{
 	background-color: #427850;
+}
+.daysHeader{
+	border-bottom-color: #2c271c !important;
 }
