@@ -8,8 +8,8 @@
    <section>
       <div class="container-fluid">
 		  <div class="row">
-			  <div class="col-xs-12 col-sm-12 col-md-12 m-auto mmradioLetters">
-				  {!!$page->content!!}
+			  <div class="col-xs-12 col-sm-6 col-md-4 m-auto mmradioLetters">
+				  <img src="{{asset('images/mmr_title.png')}}" class="img-fluid" alt="MMRadio.es"/>
 			  </div>
 		  </div>
 		  <div class="row mt-5">
